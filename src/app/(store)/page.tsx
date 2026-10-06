@@ -43,121 +43,156 @@ export default async function HomePage() {
   return (
     <>
       {/* hero */}
-      <section className="relative overflow-hidden border-b border-ink/10 bg-wash/30">
-        <div className="wrap flex flex-wrap items-center gap-12 py-16 md:py-24">
-          <div className="min-w-0 flex-1 basis-[480px]">
-            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-ink/15 bg-paper px-3.5 py-1.5 opacity-0 animate-fade-in-up">
-              <span className="block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              Software for Indian Small Businesses & Freelancers
+      <section className="relative overflow-hidden pt-6 pb-20 md:py-28">
+        {/* Soft atmospheric gradient mesh */}
+        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent blur-3xl opacity-70" />
+
+        <div className="wrap flex flex-wrap items-center gap-12 lg:gap-16">
+          <div className="min-w-0 flex-1 basis-[500px]">
+            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-2 text-xs font-semibold text-indigo-950 backdrop-blur-md opacity-0 animate-fade-in-up">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-indigo-600" />
+              </span>
+              Software Suite for Indian Small Businesses & Freelancers
             </div>
-            <h1 className="h1 mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-[50px] leading-[1.15] opacity-0 animate-fade-in-up-delay">
-              Simple business software. Fixed prices in ₹ INR.
+            
+            <h1 className="h1 mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl md:text-[54px] leading-[1.12] opacity-0 animate-fade-in-up-delay">
+              Simple business tools. <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-ink via-ink/90 to-indigo-700 bg-clip-text text-transparent">Fixed prices in ₹ INR.</span>
             </h1>
-            <p className="lead mt-5 max-w-[520px] text-base sm:text-lg leading-relaxed text-ink/80 opacity-0 animate-fade-in-up-delay-2">
-              Forgekit builds focused web apps for invoicing, booking, stock management, and review collection. Pay once or monthly, receive your license key by email immediately, and start working in 2 minutes.
+
+            <p className="lead mt-6 max-w-[540px] text-base sm:text-lg leading-relaxed text-ink/75 opacity-0 animate-fade-in-up-delay-2">
+              Forgekit builds focused web apps for invoicing, booking, stock management, and review collection. Pay once or monthly, receive your license key by email immediately, and start working in under 2 minutes.
             </p>
 
-            <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5 text-xs sm:text-sm font-medium text-ink/80 opacity-0 animate-fade-in-up-delay-2">
-              <li className="inline-flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/10 text-ink"><Icon name="check" size={12} strokeWidth={3} /></span> No subscription trap
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/10 text-ink"><Icon name="check" size={12} strokeWidth={3} /></span> Instant email delivery
-              </li>
-              <li className="inline-flex items-center gap-2">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/10 text-ink"><Icon name="check" size={12} strokeWidth={3} /></span> Razorpay UPI / Cards
-              </li>
-            </ul>
+            {/* Seamless badge strip */}
+            <div className="mt-8 flex flex-wrap gap-2.5 text-xs font-medium text-ink/80 opacity-0 animate-fade-in-up-delay-2">
+              <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
+                <Icon name="check" size={14} className="text-indigo-600" strokeWidth={2.5} /> No subscription trap
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
+                <Icon name="check" size={14} className="text-indigo-600" strokeWidth={2.5} /> Instant Email Delivery
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
+                <Icon name="check" size={14} className="text-indigo-600" strokeWidth={2.5} /> Razorpay UPI & Cards
+              </span>
+            </div>
 
-            <div className="mt-8 flex flex-wrap gap-3 opacity-0 animate-fade-in-up-delay-2">
-              <ButtonLink href="/products" className="h-12 px-6 text-base transition-transform hover:scale-105">
-                Browse all tools <Icon name="arrow" size={16} />
+            <div className="mt-9 flex flex-wrap items-center gap-4 opacity-0 animate-fade-in-up-delay-2">
+              <ButtonLink href="/products" className="h-12 px-7 text-base shadow-lg shadow-ink/10 transition-all hover:scale-[1.02] hover:shadow-xl">
+                Browse products <Icon name="arrow" size={18} />
               </ButtonLink>
-              <ButtonLink href="/#how" variant="secondary" className="h-12 px-6 text-base transition-transform hover:scale-105">
+              <ButtonLink href="/#how" variant="secondary" className="h-12 px-6 text-base border-ink/15 hover:bg-wash transition-all">
                 How it works
               </ButtonLink>
             </div>
           </div>
 
-          <div className="relative min-w-[300px] flex-1 basis-[440px] pb-9 opacity-0 animate-fade-in-up-delay">
-            <div className="overflow-hidden rounded-[14px] border border-ink/15 bg-paper shadow-float animate-float-idle">
-              <div className="flex h-9 items-center justify-between border-b border-ink/10 bg-wash px-4">
-                <div className="flex items-center gap-1.5">
-                  <i className="block h-2.5 w-2.5 rounded-full bg-red-400" />
-                  <i className="block h-2.5 w-2.5 rounded-full bg-amber-400" />
-                  <i className="block h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                  <span className="ml-2 text-xs font-semibold text-ink/60">Forgekit Business Suite</span>
+          {/* Hero interactive visual */}
+          <div className="relative min-w-[320px] flex-1 basis-[440px] opacity-0 animate-fade-in-up-delay">
+            <div className="relative overflow-hidden rounded-2xl border border-ink/15 bg-paper/90 shadow-2xl backdrop-blur-xl animate-float-idle">
+              {/* Window header */}
+              <div className="flex h-10 items-center justify-between border-b border-ink/10 bg-wash/80 px-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-rose-400/80" />
+                  <span className="h-3 w-3 rounded-full bg-amber-400/80" />
+                  <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
+                  <span className="ml-2 text-[11px] font-semibold tracking-wider text-ink/50 uppercase">Forgekit License Engine</span>
                 </div>
-                <span className="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 uppercase tracking-wider">Instant Setup</span>
+                <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
+                  Instant Access
+                </span>
               </div>
               
-              <div className="p-6">
-                <div className="text-xs font-bold uppercase tracking-wider text-ink/40">How you use any tool:</div>
-                <div className="mt-4 space-y-3">
-                  <div className="flex items-center justify-between rounded-lg border border-ink/10 bg-wash/50 p-3 text-xs">
-                    <span className="font-semibold text-ink">1. Choose tool & enter email</span>
-                    <span className="text-ink/60">30 seconds</span>
+              <div className="p-6 sm:p-7 space-y-4">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-ink/40">3-Step Seamless Purchase:</div>
+                
+                <div className="flex items-center justify-between rounded-xl border border-ink/10 bg-wash/40 p-3.5 text-xs transition-all hover:border-ink/20">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-paper font-bold text-xs">1</span>
+                    <div>
+                      <div className="font-semibold text-ink">Choose Product & Enter Email</div>
+                      <div className="text-[11px] text-ink/60">No password or sign up required</div>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-ink/10 bg-wash/50 p-3 text-xs">
-                    <span className="font-semibold text-ink">2. Pay via UPI, Card or Netbanking</span>
-                    <span className="text-ink/60">Razorpay</span>
+                  <span className="text-[11px] font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">₹ INR</span>
+                </div>
+
+                <div className="flex items-center justify-between rounded-xl border border-ink/10 bg-wash/40 p-3.5 text-xs transition-all hover:border-ink/20">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-paper font-bold text-xs">2</span>
+                    <div>
+                      <div className="font-semibold text-ink">Pay via Razorpay</div>
+                      <div className="text-[11px] text-ink/60">UPI, Netbanking, Cards</div>
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between rounded-lg border border-ink bg-ink text-paper p-3 text-xs font-medium shadow-md">
-                    <span className="flex items-center gap-2">
-                      <Icon name="check" size={14} className="text-emerald-400" />
-                      3. Key emailed + instant access
-                    </span>
-                    <span className="font-mono text-[11px] bg-paper/20 px-2 py-0.5 rounded">FK-KEYS-2026</span>
+                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-1 rounded">100% Safe</span>
+                </div>
+
+                <div className="flex items-center justify-between rounded-xl border border-indigo-500/30 bg-ink text-paper p-4 text-xs font-medium shadow-lg">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-paper text-ink font-bold text-xs">3</span>
+                    <div>
+                      <div className="font-bold text-paper">License Key Issued</div>
+                      <div className="text-[11px] text-paper/70">Emailed & displayed instantly</div>
+                    </div>
                   </div>
+                  <span className="font-mono text-[11px] bg-paper/20 px-2 py-1 rounded text-paper font-bold">FK-9042-X</span>
                 </div>
               </div>
 
-              <div className="border-t border-ink/10 bg-wash/60 px-5 py-3 text-center text-xs text-ink/70">
-                ⭐ Trusted by 100+ Indian freelancers, shop owners & agencies.
+              <div className="border-t border-ink/10 bg-wash/50 px-6 py-3.5 text-center text-xs text-ink/70 flex items-center justify-center gap-2">
+                <Icon name="lock" size={14} className="text-indigo-600" />
+                <span>30-Day Support Guarantee Included</span>
               </div>
             </div>
 
-            <div className="absolute -left-3 bottom-0 flex w-[272px] items-center gap-3 rounded-[10px] border border-ink/15 bg-paper px-4 py-3.5 shadow-float md:-left-6 opacity-0 animate-fade-in-up-delay-2">
-              <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-ink text-paper">
-                <Icon name="check" size={16} strokeWidth={2.4} />
+            {/* Floating Trust Badge */}
+            <div className="absolute -left-4 bottom-2 flex items-center gap-3.5 rounded-xl border border-ink/15 bg-paper/95 px-4 py-3.5 shadow-2xl backdrop-blur-md md:-left-8">
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-indigo-600 text-paper shadow-md">
+                <Icon name="check" size={18} strokeWidth={2.5} />
               </span>
               <div>
-                <div className="text-[13px] font-medium leading-[18px]">Instant Key Delivery</div>
-                <div className="text-xs font-light leading-[18px] text-ink/65">Automatic email upon payment</div>
+                <div className="text-xs font-bold text-ink">Instant Email Fulfilment</div>
+                <div className="text-[11px] font-medium text-ink/60">No manual waiting period</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* trust bar */}
-      <section className="border-y border-ink/10 bg-wash">
-        <div className="wrap grid gap-x-10 gap-y-6 py-8 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Trust & Guarantee Banner */}
+      <section className="relative z-10 border-y border-ink/10 bg-paper/60 backdrop-blur-md">
+        <div className="wrap grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {trust.map((t) => (
-            <div key={t.title} className="flex items-start gap-3.5">
-              <Icon name={t.icon} size={22} strokeWidth={1.8} className="mt-0.5 flex-none" />
+            <div key={t.title} className="group flex items-start gap-4 p-2 transition-all">
+              <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-ink/10 bg-wash text-ink transition-colors group-hover:border-indigo-500/30 group-hover:bg-indigo-500/5 group-hover:text-indigo-600">
+                <Icon name={t.icon} size={20} strokeWidth={1.8} />
+              </div>
               <div>
-                <div className="text-[15px] font-medium leading-[22px]">{t.title}</div>
-                <div className="text-[13px] font-light leading-5 text-ink/70">{t.body}</div>
+                <div className="text-sm font-bold text-ink leading-snug">{t.title}</div>
+                <div className="mt-1 text-xs font-normal leading-relaxed text-ink/70">{t.body}</div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* products */}
-      <section>
-        <div className="wrap py-20 md:py-24">
-          <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+      {/* Featured Products Section */}
+      <section className="py-20 md:py-28">
+        <div className="wrap">
+          <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-ink/10 pb-8">
             <div>
-              <div className="eyebrow mb-3.5">Products</div>
-              <h2 className="h2">Tools you can start using today</h2>
+              <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Curated Suite</div>
+              <h2 className="h2 text-3xl font-extrabold sm:text-4xl">Tools ready for your business</h2>
             </div>
-            <Link href="/products" className="inline-flex items-center gap-2 text-[15px] font-medium">
-              View all products <Icon name="arrow" size={16} />
+            <Link href="/products" className="group inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-indigo-600 transition-colors">
+              Explore full catalogue <Icon name="arrow" size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
+          
+          <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
             {featured.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
@@ -165,82 +200,97 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* how it works */}
-      <section id="how" className="scroll-mt-20 border-y border-ink/10 bg-wash">
-        <div className="wrap py-20 md:py-24">
-          <div className="eyebrow mb-3.5">How it works</div>
-          <h2 className="h2 max-w-[680px]">From checkout to your key in four steps</h2>
-          <div className="mt-14 grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
+      {/* Seamless Workflow Section */}
+      <section id="how" className="scroll-mt-20 border-y border-ink/10 bg-wash/40 py-20 md:py-28">
+        <div className="wrap">
+          <div className="text-center max-w-[600px] mx-auto">
+            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Simple 4-Step Process</div>
+            <h2 className="h2 text-3xl font-extrabold sm:text-4xl">From checkout to key in minutes</h2>
+            <p className="mt-3 text-sm text-ink/70">No bloated onboarding calls or complex enterprise setups.</p>
+          </div>
+
+          <div className="mt-16 grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
             {steps.map((s, i) => (
-              <div key={s.title}>
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-ink text-sm font-medium">
-                  {i + 1}
+              <div key={s.title} className="relative rounded-2xl border border-ink/10 bg-paper p-7 shadow-sm transition-all hover:border-indigo-500/30 hover:shadow-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink text-paper text-sm font-bold shadow-md">
+                  0{i + 1}
                 </div>
-                <div className="mt-5 text-lg font-bold leading-[26px] tracking-[-0.01em]">{s.title}</div>
-                <div className="mt-2 text-sm font-light leading-6 text-ink/75">{s.body}</div>
+                <div className="mt-6 text-lg font-bold leading-snug text-ink">{s.title}</div>
+                <div className="mt-2.5 text-xs font-normal leading-relaxed text-ink/70">{s.body}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* terms */}
-      <section id="terms" className="scroll-mt-20">
-        <div className="wrap py-20 md:py-24">
-          <div className="eyebrow mb-3.5">Before you buy</div>
-          <h2 className="h2 max-w-[680px]">What you pay, what you get, what if it goes wrong</h2>
-          <div className="mt-12 grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
+      {/* Pricing & Guarantee Terms Section */}
+      <section id="terms" className="scroll-mt-20 py-20 md:py-28">
+        <div className="wrap">
+          <div className="mb-12 border-b border-ink/10 pb-8">
+            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Transparency First</div>
+            <h2 className="h2 text-3xl font-extrabold sm:text-4xl">Clear terms. No fine print surprises.</h2>
+          </div>
+
+          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
             {terms.map((t) => (
-              <div key={t.title} className="card p-7">
-                <div className="text-[17px] font-bold leading-[26px]">{t.title}</div>
-                <p className="mt-2.5 text-sm font-light leading-6 text-ink/80">{t.body}</p>
+              <div key={t.title} className="rounded-2xl border border-ink/10 bg-paper/80 p-8 shadow-sm backdrop-blur-md transition-all hover:border-ink/20">
+                <div className="text-lg font-bold text-ink">{t.title}</div>
+                <p className="mt-3 text-xs leading-relaxed text-ink/75">{t.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* built by */}
-      <section className="bg-ink text-paper">
-        <div className="wrap flex flex-wrap items-center justify-between gap-10 py-20">
-          <div className="max-w-[640px] flex-1 basis-[480px]">
-            <div className="text-[13px] font-medium text-paper/60">Who is behind this</div>
-            <h2 className="h2 mt-3.5">Built and supported by Daksh & Forgekit.</h2>
-            <p className="mt-5 text-base font-light leading-7 text-paper/80">
-              Forgekit is an independent software studio. This is where we sell the small tools we
-              build. When you write to support, you reach the people who actually made
-              the product.
+      {/* Founder / About Section */}
+      <section className="relative overflow-hidden bg-ink text-paper py-20 md:py-24">
+        {/* Subtle dark glow */}
+        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
+        
+        <div className="wrap flex flex-wrap items-center justify-between gap-12">
+          <div className="max-w-[620px] flex-1 basis-[460px]">
+            <span className="inline-block rounded-full bg-paper/10 px-3.5 py-1.5 text-xs font-medium text-paper/80">
+              Independent Studio
+            </span>
+            <h2 className="h2 mt-4 text-3xl font-bold sm:text-4xl text-paper">Built and supported by Daksh & Forgekit.</h2>
+            <p className="mt-5 text-sm font-normal leading-relaxed text-paper/80">
+              Forgekit is an independent Indian software studio. We design and maintain clean, fast, standalone tools for small businesses. When you reach out for help, you speak directly with the developers who built your product.
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/products" variant="inverse">Browse products</ButtonLink>
-            <ButtonLink href="/#faq" variant="ghost-inverse">Read the FAQ</ButtonLink>
+
+          <div className="flex flex-wrap gap-4">
+            <ButtonLink href="/products" variant="inverse" className="h-12 px-6 text-sm font-semibold">
+              Browse products
+            </ButtonLink>
+            <ButtonLink href="/#faq" variant="ghost-inverse" className="h-12 px-6 text-sm border-paper/20">
+              Read the FAQ
+            </ButtonLink>
           </div>
         </div>
       </section>
 
-      {/* faq */}
-      <section id="faq" className="scroll-mt-20">
-        <div className="wrap flex flex-wrap gap-x-20 gap-y-12 py-20 md:py-24">
-          <div className="min-w-0 flex-1 basis-[280px]">
-            <div className="eyebrow mb-3.5">FAQ</div>
-            <h2 className="h2">Common questions</h2>
-            <p className="mt-4 text-[15px] font-light leading-[26px] text-ink/70">
-              Something else? Write to{" "}
-              <a className="underline underline-offset-4" href={`mailto:${site.supportEmail}`}>
+      {/* FAQ Section */}
+      <section id="faq" className="scroll-mt-20 py-20 md:py-28">
+        <div className="wrap flex flex-wrap gap-x-16 gap-y-12">
+          <div className="min-w-0 flex-1 basis-[300px]">
+            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Need Clarity?</div>
+            <h2 className="h2 text-3xl font-extrabold sm:text-4xl">Frequently asked questions</h2>
+            <p className="mt-4 text-sm font-normal leading-relaxed text-ink/70">
+              Have a question not listed here? Email us directly at{" "}
+              <a className="font-semibold text-ink underline underline-offset-4 hover:text-indigo-600" href={`mailto:${site.supportEmail}`}>
                 {site.supportEmail}
               </a>
-              .
             </p>
           </div>
-          <div className="min-w-0 flex-[2_1_520px]">
+
+          <div className="min-w-0 flex-[2_1_500px]">
             {faqs.map((f, i) => (
-              <details key={f.q} open={i === 0} className="group border-t border-ink/15 last:border-b">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-medium leading-7 [&::-webkit-details-marker]:hidden">
+              <details key={f.q} open={i === 0} className="group border-b border-ink/10 last:border-b-0">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-base font-bold leading-snug text-ink transition-colors group-open:text-indigo-600 [&::-webkit-details-marker]:hidden">
                   {f.q}
-                  <span aria-hidden className="text-2xl font-light transition group-open:rotate-45">+</span>
+                  <span aria-hidden className="flex h-7 w-7 flex-none items-center justify-center rounded-full border border-ink/15 text-lg font-light transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="max-w-[640px] pb-6 text-[15px] font-light leading-[26px] text-ink/80">{f.a}</p>
+                <p className="max-w-[620px] pb-6 text-xs leading-relaxed text-ink/75">{f.a}</p>
               </details>
             ))}
           </div>
