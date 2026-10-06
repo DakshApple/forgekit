@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidateTag } from "next/cache";
 import { withAdmin } from "@/server/auth";
 import { getAllProductsAdmin } from "@/lib/data";
 
@@ -72,5 +73,6 @@ export const POST = withAdmin(async (req) => {
     }
   }
 
+  revalidateTag("products");
   return NextResponse.json({ ok: true });
 });
