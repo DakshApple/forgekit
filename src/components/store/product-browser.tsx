@@ -59,34 +59,34 @@ export function ProductBrowser({
               type="button"
               onClick={() => setFilter(c.id)}
               aria-pressed={filter === c.id}
-              className={`inline-flex h-10 items-center rounded-full border px-[18px] text-sm font-medium transition ${
+              className={`inline-flex h-10 items-center rounded-xl border px-4 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                 filter === c.id
-                  ? "border-ink bg-ink text-paper"
-                  : "border-ink/25 bg-paper hover:bg-tint"
+                  ? "border-ink bg-ink text-paper shadow-md"
+                  : "border-ink/15 bg-paper/80 text-ink/80 hover:bg-wash hover:border-sky-600/30"
               }`}
             >
-              {c.label} {counts[c.id]}
+              {c.label} ({counts[c.id]})
             </button>
           ))}
         </div>
         <div className="flex flex-wrap gap-3">
-          <label className="flex h-10 min-w-[240px] items-center gap-2.5 rounded-lg border border-ink/25 px-3.5 focus-within:border-ink">
-            <Icon name="search" size={16} />
+          <label className="flex h-10 min-w-[260px] items-center gap-2.5 rounded-xl border border-ink/15 bg-paper/90 backdrop-blur-md px-3.5 shadow-sm transition-all focus-within:border-sky-600 focus-within:ring-2 focus-within:ring-sky-100">
+            <Icon name="search" size={16} className="text-ink/50" />
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search products"
+              placeholder="Search by tool name or feature..."
               aria-label="Search products"
-              className="w-full bg-transparent text-sm outline-none placeholder:text-ink/40"
+              className="w-full bg-transparent text-xs sm:text-sm font-medium outline-none placeholder:text-ink/40"
             />
           </label>
-          <label className="flex h-10 items-center gap-2 rounded-lg border border-ink/25 px-3.5 text-sm font-medium">
+          <label className="flex h-10 items-center gap-2 rounded-xl border border-ink/15 bg-paper/90 backdrop-blur-md px-3.5 text-xs font-semibold uppercase tracking-wider text-ink/80 shadow-sm">
             <span className="sr-only">Sort products</span>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as Sort)}
-              className="bg-transparent outline-none"
+              className="bg-transparent outline-none cursor-pointer"
             >
               <option value="newest">Sort: Newest</option>
               <option value="price-low">Price: low to high</option>
@@ -97,22 +97,26 @@ export function ProductBrowser({
         </div>
       </div>
 
-      <div className="wrap pb-16 pt-6">
+      <div className="wrap pb-20 pt-6">
         {visible.length === 0 ? (
-          <div className="card p-10 text-center text-[15px] text-ink/70">
-            No products match that search.
+          <div className="rounded-2xl border border-ink/10 bg-paper/90 p-12 text-center shadow-sm backdrop-blur-xl">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-wash text-ink/50 mb-3">
+              <Icon name="search" size={24} />
+            </div>
+            <div className="text-base font-bold text-ink">No matching products found</div>
+            <p className="mt-1 text-xs text-ink/65 max-w-[360px] mx-auto">
+              {query ? `No tools match "${query}". Try searching for another keyword or clear filters.` : "Create active products in the admin panel to populate this catalogue."}
+            </p>
           </div>
         ) : (
-          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
+          <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
             {visible.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
           </div>
         )}
-        <p className="mt-8 text-[13px] font-light leading-[22px] text-ink/70">
-          All prices in INR. Monthly licenses renew every month and can be
-          stopped before renewal. One-time licenses are paid once. Your key is
-          emailed when payment is verified. Screens shown with sample data.
+        <p className="mt-10 text-xs font-normal leading-relaxed text-ink/65 border-t border-ink/10 pt-6">
+          * All prices are quoted in ₹ INR. Monthly subscriptions renew every month and can be cancelled anytime before renewal. One-time licenses provide perpetual access. License keys are issued automatically upon Razorpay payment verification.
         </p>
       </div>
     </>
