@@ -64,12 +64,13 @@ export function ProductForm({ product }: { product?: Product }) {
       description,
       features: features.filter(Boolean),
       trial_days: isNaN(td) ? 0 : td,
+      icon: "box",
       plans: [
         ...(monthlyOn ? [{ type: "monthly", priceInr: mp }] : []),
         ...(onceOn ? [{ type: "one-time", priceInr: op }] : []),
       ],
       status: live ? "live" : "draft",
-      accessUrl,
+      access_url: accessUrl,
     });
     setSaving(false);
     setMessage("Saved. This is the frontend only, so nothing is stored yet.");
