@@ -19,7 +19,7 @@ export default function TermsPage() {
           These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you (&quot;Customer&quot; or &quot;User&quot;) and <strong>Forgekit</strong> (&quot;Company&quot;, &quot;we&quot;, or &quot;us&quot;), operating from {site.location}.
         </p>
         <p className="mt-2">
-          By purchasing, downloading, or activating any software product license through <a className="text-sky-600 underline" href="https://www.forgekit.in">forgekit.in</a>, you accept these Terms in full. If you are entering into this agreement on behalf of a company or legal entity, you represent that you have the authority to bind such entity.
+          By purchasing, downloading, or activating any software product license through <a className="text-sapphire-600 underline dark:text-sapphire-400" href="https://www.forgekit.in">forgekit.in</a>, you accept these Terms in full. If you are entering into this agreement on behalf of a company or legal entity, you represent that you have the authority to bind such entity.
         </p>
       </LegalSection>
 
@@ -48,7 +48,7 @@ export default function TermsPage() {
 
       <LegalSection title="4. Free Trials & Subscription Renewals">
         <p>
-          Products offering a 7-day free trial allow immediate access without upfront charges. Unless cancelled before the 7-day trial period expires, your card will be automatically charged for the recurring monthly fee. You may cancel your subscription at any time by emailing <a className="text-sky-600 font-medium underline" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.
+          Products offering a 7-day free trial allow immediate access without upfront charges. Unless cancelled before the 7-day trial period expires, your card will be automatically charged for the recurring monthly fee. You may cancel your subscription at any time by emailing <a className="font-medium text-sapphire-600 underline dark:text-sapphire-400" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.
         </p>
       </LegalSection>
 

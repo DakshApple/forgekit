@@ -19,7 +19,7 @@ export default function RefundsPage() {
           We stand behind the code we build. If any software tool you purchase from Forgekit does not function as described on its product page, or if you encounter technical issues that our support team cannot resolve, you are entitled to a <strong>100% full refund within {site.refundDays} days</strong> of purchase.
         </p>
         <p className="mt-2">
-          To request a refund, simply send an email to <a className="text-sky-600 font-semibold underline" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> with your Order ID or License Key. No complex forms or questions asked.
+          To request a refund, simply send an email to <a className="font-semibold text-sapphire-600 underline dark:text-sapphire-400" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> with your Order ID or License Key. No complex forms or questions asked.
         </p>
       </LegalSection>
 
@@ -34,7 +34,7 @@ export default function RefundsPage() {
           You are in full control of your subscription plans:
         </p>
         <ul className="mt-2 list-disc list-inside space-y-1.5 text-xs sm:text-sm text-ink/80">
-          <li>Cancel anytime before your next renewal date by emailing <a className="text-sky-600 underline" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.</li>
+          <li>Cancel anytime before your next renewal date by emailing <a className="text-sapphire-600 underline dark:text-sapphire-400" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.</li>
           <li>Upon cancellation, your license key remains <strong>100% active until the end of the current paid billing cycle</strong>.</li>
         </ul>
       </LegalSection>

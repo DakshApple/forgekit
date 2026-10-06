@@ -1,11 +1,34 @@
-@import "@fontsource/inter/300.css";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/700.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Theme tokens. Light is the default everywhere (admin included).     */
+/* Dark only applies inside the storefront ([data-store]).             */
+/* ------------------------------------------------------------------ */
+:root {
+  --ink: 11 19 43; /* #0B132B */
+  --paper: 255 255 255; /* #FFFFFF */
+  --wash: 248 250 252; /* #F8FAFC */
+  --tint: 241 245 249; /* #F1F5F9 */
+  --accent: 37 99 235; /* #2563EB — 5.2:1 on white */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.dark [data-store] {
+  --ink: 247 248 248; /* #F7F8F8 */
+  --paper: 8 9 10; /* #08090A */
+  --wash: 15 16 17; /* #0F1011 */
+  --tint: 22 23 26; /* #16171A */
+  --accent: 96 165 250; /* #60A5FA — 7.9:1 on #08090A */
+  color-scheme: dark;
+}
+
+/* Avoid a white flash on overscroll when the store is dark. */
+html.dark:has([data-store]),
+html.dark:has([data-store]) body {
+  background: #08090a;
+}
 
 @layer base {
   html {
@@ -14,16 +37,17 @@
   }
   body {
     @apply bg-paper font-sans text-ink antialiased;
-    /* Subtle dot pattern background */
+    /* Subtle dot pattern background (admin + fallback) */
     background-image: radial-gradient(rgba(10, 10, 11, 0.05) 1px, transparent 1px);
     background-size: 24px 24px;
+    text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: #0284c7;
+    background: rgb(var(--accent));
     color: #fff;
   }
   :focus-visible {
-    outline: 2px solid #0284c7;
+    outline: 2px solid rgb(var(--accent));
     outline-offset: 2px;
   }
 }
@@ -45,15 +69,199 @@
     @apply text-[13px] font-medium leading-[18px] text-ink/60;
   }
   .card {
-    @apply rounded-xl border border-ink/10 bg-paper/80 backdrop-blur-xl shadow-soft;
+    @apply rounded-xl border border-ink/10 bg-paper/80 shadow-soft backdrop-blur-xl;
   }
   .card-hover {
-    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-indigo-500 hover:shadow-glow;
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-glow;
   }
   .input {
-    @apply h-12 w-full rounded-lg border border-ink/20 bg-paper/90 backdrop-blur-md px-3.5 text-[15px] text-ink outline-none transition-all duration-200 placeholder:text-ink/40 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100;
+    @apply h-12 w-full rounded-lg border border-ink/20 bg-paper/90 px-3.5 text-[15px] text-ink outline-none backdrop-blur-md transition-all duration-200 placeholder:text-ink/40 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20;
   }
   .label {
     @apply mb-2 block text-[13px] font-medium leading-[18px];
+  }
+
+  /* ---------------- Storefront design system ---------------- */
+
+  .store-root {
+    @apply relative min-h-screen bg-paper text-ink;
+  }
+
+  /* Section rhythm: 88 / 120 / 160 */
+  .section {
+    @apply py-[88px] md:py-[120px] lg:py-[160px];
+  }
+
+  .display {
+    @apply text-[44px] font-semibold leading-[1.02] tracking-tightest sm:text-[64px] lg:text-[80px] xl:text-[88px];
+  }
+  .title {
+    @apply text-[32px] font-semibold leading-[1.08] tracking-[-0.035em] md:text-[40px] lg:text-[48px];
+  }
+  .kicker {
+    @apply inline-flex items-center gap-2 text-[13px] font-medium text-accent;
+  }
+
+  /* Gradient text: ink → 60% ink, top to bottom */
+  .text-gradient {
+    background-image: linear-gradient(180deg, rgb(var(--ink)) 25%, rgb(var(--ink) / 0.6) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-sapphire {
+    background-image: linear-gradient(90deg, #3b82f6, #0ea5e9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass {
+    background: rgb(var(--paper) / 0.72);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgb(var(--ink) / 0.08);
+  }
+
+  .hairline {
+    border: 1px solid rgb(var(--ink) / 0.08);
+  }
+
+  /* Faint grid that fades out from the centre */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--ink) / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--ink) / 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+  }
+
+  /* Cursor-following spotlight border (vars set by SpotlightCard) */
+  .spotlight {
+    --x: 50%;
+    --y: 50%;
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before,
+  .spotlight::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 300ms var(--ease);
+  }
+  .spotlight::before {
+    z-index: 2;
+    padding: 1px;
+    background: radial-gradient(360px circle at var(--x) var(--y), rgb(59 130 246 / 0.7), transparent 45%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  }
+  .spotlight::after {
+    z-index: -1;
+    background: radial-gradient(500px circle at var(--x) var(--y), rgb(59 130 246 / 0.07), transparent 40%);
+  }
+  .spotlight:hover::before,
+  .spotlight:hover::after,
+  .spotlight:focus-visible::before {
+    opacity: 1;
+  }
+
+  /* Hero product window: tilted, straightens as the page scrolls */
+  .hero-tilt {
+    transform: perspective(1800px) rotateX(10deg) scale(0.98);
+    transform-origin: 50% 0%;
+    will-change: transform;
+  }
+  @supports (animation-timeline: scroll()) {
+    .hero-tilt {
+      transform: perspective(1800px) rotateX(18deg) scale(0.95);
+      animation: hero-straighten linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0px 520px;
+    }
+  }
+
+  /* Stripe-style slow gradient mesh */
+  .mesh {
+    background:
+      radial-gradient(40% 60% at 20% 30%, rgb(59 130 246 / 0.22), transparent 70%),
+      radial-gradient(35% 50% at 80% 20%, rgb(14 165 233 / 0.18), transparent 70%),
+      radial-gradient(45% 55% at 60% 90%, rgb(37 99 235 / 0.16), transparent 70%);
+    animation: mesh-drift 18s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+}
+
+@keyframes hero-straighten {
+  from {
+    transform: perspective(1800px) rotateX(18deg) scale(0.95);
+  }
+  to {
+    transform: perspective(1800px) rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes mesh-drift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(4%, 3%, 0) scale(1.15);
+  }
+}
+
+/* Grain overlay (~3%) for a tactile surface. Store only. */
+.store-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+html.dark .store-root::before {
+  opacity: 0.05;
+}
+
+/* Scroll reveal: fade + 12px rise, once. Hidden only when JS is running. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 600ms var(--ease),
+    transform 600ms var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+html.js [data-reveal][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-tilt {
+    animation: none !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
+import { ThemeToggle } from "../site/theme-toggle";
 
 function Col({
   title,
@@ -11,77 +12,74 @@ function Col({
 }) {
   return (
     <div className="min-w-[140px]">
-      <div className="text-[13px] font-bold">{title}</div>
-      {items.map((i) => (
-        <Link
-          key={i.label}
-          href={i.href}
-          className="mt-3 block text-sm text-ink/70 hover:text-ink"
-        >
-          {i.label}
-        </Link>
-      ))}
+      <div className="text-[13px] font-semibold tracking-wide text-ink">{title}</div>
+      <ul className="mt-4 flex flex-col gap-3">
+        {items.map((i) => (
+          <li key={i.label}>
+            <Link
+              href={i.href}
+              className="text-[14px] text-ink/60 transition-colors hover:text-ink"
+            >
+              {i.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-ink/10 bg-wash">
-      <div className="wrap flex flex-wrap justify-between gap-x-16 gap-y-10 pb-8 pt-14">
-        <div className="max-w-[340px] flex-1 basis-[280px]">
-          <Logo />
-          <p className="mt-5 text-sm font-light leading-6 text-ink/70">
-            Small software for small businesses. Fixed prices, license key by
-            email.
+    <footer className="border-t border-ink/[0.06] bg-wash/30 pb-10 pt-16 md:pb-16 md:pt-24">
+      <div className="wrap flex flex-wrap justify-between gap-12 lg:gap-20">
+        <div className="max-w-[320px]">
+          <Logo variant="auto" width={110} />
+          <p className="mt-5 text-[14px] leading-[1.6] text-ink/60">
+            Small software for small businesses. Fixed prices, license key by email. Built independently in {site.location.split(",")[0]}.
           </p>
-          <p className="mt-4 text-[13px] font-light leading-[22px] text-ink/65">
-            A product of {site.company}
-            <br />
-            {site.location}
-          </p>
+          <div className="mt-6">
+            <ThemeToggle className="-ml-2" />
+          </div>
         </div>
-        <Col
-          title="Shop"
-          items={[
-            { label: "All products", href: "/products" },
-            { label: "Monthly plans", href: "/products?billing=monthly" },
-            { label: "One-time", href: "/products?billing=one-time" },
-          ]}
-        />
-        <Col
-          title="Help"
-          items={[
-            { label: "How it works", href: "/#how" },
-            { label: "FAQ", href: "/#faq" },
-            { label: "Contact support", href: `mailto:${site.supportEmail}` },
-          ]}
-        />
-        <Col
-          title="Legal"
-          items={[
-            { label: "Terms of service", href: "/terms" },
-            { label: "Privacy policy", href: "/privacy" },
-            { label: "Refund policy", href: "/refunds" },
-          ]}
-        />
-        <div className="min-w-[200px]">
-          <div className="text-[13px] font-bold">Contact</div>
-          <a
-            href={`mailto:${site.supportEmail}`}
-            className="mt-3 block text-sm text-ink/70 hover:text-ink"
-          >
-            {site.supportEmail}
-          </a>
-          <div className="mt-3 text-sm text-ink/70">{site.supportHours}</div>
+        
+        <div className="flex flex-wrap gap-12 lg:gap-20">
+          <Col
+            title="Shop"
+            items={[
+              { label: "All products", href: "/products" },
+              { label: "Monthly plans", href: "/products?billing=monthly" },
+              { label: "One-time licenses", href: "/products?billing=one-time" },
+            ]}
+          />
+          <Col
+            title="Support"
+            items={[
+              { label: "How it works", href: "/#how" },
+              { label: "FAQ", href: "/#faq" },
+              { label: "Contact us", href: `mailto:${site.supportEmail}` },
+            ]}
+          />
+          <Col
+            title="Legal"
+            items={[
+              { label: "Terms of service", href: "/terms" },
+              { label: "Privacy policy", href: "/privacy" },
+              { label: "Refund policy", href: "/refunds" },
+            ]}
+          />
         </div>
       </div>
-      <div className="wrap pb-9">
-        <div className="flex flex-wrap justify-between gap-3 border-t border-ink/10 pt-6 text-xs text-ink/60">
-          <span>
-            {new Date().getFullYear()} {site.company}. All rights reserved.
-          </span>
-          <span>Prices in INR. Payments processed by Razorpay.</span>
+
+      <div className="wrap mt-16 md:mt-24">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-ink/[0.06] pt-8 text-[13px] text-ink/50">
+          <p>
+            &copy; {new Date().getFullYear()} {site.company}. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <span>Prices in INR.</span>
+            <span>Payments processed by Razorpay.</span>
+          </div>
         </div>
       </div>
     </footer>

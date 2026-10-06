@@ -8,8 +8,8 @@ const base =
   "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-xl border text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100";
 
 const variants: Record<Variant, string> = {
-  primary: "border-ink bg-ink text-paper shadow-md shadow-ink/10 hover:bg-sky-950 hover:border-sky-950 hover:shadow-lg",
-  secondary: "border-ink/15 bg-paper text-ink shadow-sm hover:bg-wash hover:border-sky-600/40 hover:text-sky-950",
+  primary: "border-ink bg-ink text-paper shadow-md shadow-ink/10 transition-transform hover:-translate-y-0.5",
+  secondary: "border-ink/[0.12] bg-transparent text-ink shadow-sm hover:border-ink/[0.25]",
   inverse: "border-paper bg-paper text-ink shadow-md hover:bg-paper/90",
   "ghost-inverse": "border-paper/20 bg-transparent text-paper hover:bg-paper/10",
 };

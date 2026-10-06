@@ -19,7 +19,7 @@ export default function PrivacyPage() {
           This Privacy Policy governs the collection, processing, and protection of personal data by <strong>Forgekit</strong> (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), an independent digital software studio operating in India.
         </p>
         <p>
-          By accessing our website (<a className="text-sky-600 underline" href="https://www.forgekit.in">forgekit.in</a>) or purchasing any software license keys, you agree to the collection and use of information in accordance with this policy. This policy complies with the Information Technology Act, 2000, Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, and relevant provisions of the Digital Personal Data Protection (DPDP) Act, 2023.
+          By accessing our website (<a className="text-sapphire-600 underline dark:text-sapphire-400" href="https://www.forgekit.in">forgekit.in</a>) or purchasing any software license keys, you agree to the collection and use of information in accordance with this policy. This policy complies with the Information Technology Act, 2000, Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, and relevant provisions of the Digital Personal Data Protection (DPDP) Act, 2023.
         </p>
       </LegalSection>
 
@@ -122,7 +122,7 @@ export default function PrivacyPage() {
           We retain purchase records (Email, Name, License Key, GSTIN) for as long as your software license remains valid to allow key recovery and verify authentications.
         </p>
         <p className="mt-2">
-          <strong>Your Rights:</strong> Under applicable law, you have the right to request access to, correction of, or complete erasure of your personal data. To exercise your rights, email us at <a className="text-sky-600 font-semibold underline" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>. (Note: Account erasure will invalidate your active license keys).
+          <strong>Your Rights:</strong> Under applicable law, you have the right to request access to, correction of, or complete erasure of your personal data. To exercise your rights, email us at <a className="font-semibold text-sapphire-600 underline dark:text-sapphire-400" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>. (Note: Account erasure will invalidate your active license keys).
         </p>
       </LegalSection>
 
@@ -132,7 +132,7 @@ export default function PrivacyPage() {
         </p>
         <div className="mt-3 rounded-xl border border-ink/10 bg-wash/60 p-4 text-xs sm:text-sm space-y-1">
           <div><strong>Grievance Officer:</strong> Legal & Compliance Team (Forgekit)</div>
-          <div><strong>Email:</strong> <a className="text-sky-600 underline font-medium" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></div>
+          <div><strong>Email:</strong> <a className="font-medium text-sapphire-600 underline dark:text-sapphire-400" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></div>
           <div><strong>Response Timeline:</strong> Within 48 hours of receipt of grievance.</div>
         </div>
       </LegalSection>

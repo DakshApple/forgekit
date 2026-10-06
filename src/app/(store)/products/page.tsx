@@ -1,43 +1,42 @@
 import type { Metadata } from "next";
 import { ProductBrowser } from "@/components/store/product-browser";
+import { RevealObserver } from "@/components/site/reveal-observer";
+import { Reveal } from "@/components/site/reveal";
 import { getProducts } from "@/lib/data";
-
-
 
 export const metadata: Metadata = {
   title: "Products",
   description: "Small tools for everyday business. Fixed prices, license key by email.",
 };
 
-export default async function ProductsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ billing?: string }>;
-}) {
-  const { billing } = await searchParams;
+export default async function ProductsPage() {
   const products = await getProducts();
-  const initial = billing === "monthly" || billing === "one-time" ? billing : "all";
 
   return (
     <>
-      <section className="relative overflow-hidden pt-12 pb-14 border-b border-ink/10">
-        <div className="pointer-events-none absolute -top-20 left-1/2 -z-10 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-500/10 via-blue-600/5 to-transparent blur-3xl opacity-75" />
-        <div className="wrap">
-          <div className="eyebrow inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-3 py-1 text-xs font-semibold text-sky-950">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
-            CATALOGUE
-          </div>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl md:text-5xl">
-            Software suite for everyday business
-          </h1>
-          <p className="lead mt-3.5 max-w-[620px] text-base text-ink/75">
-            {products.length === 0
-              ? "No live products loaded yet. Create your products in the admin panel to display them here."
-              : `${products.length} active tools available. Fixed prices in ₹ INR. Select a plan and receive your license key instantly by email.`}
-          </p>
+      <RevealObserver />
+      <section className="relative overflow-hidden border-b border-ink/[0.06] pt-32 pb-16">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(59_130_246/0.1),transparent)] mix-blend-plus-lighter" />
+        <div className="wrap relative">
+          <Reveal delay={0}>
+            <div className="eyebrow inline-flex items-center gap-2 rounded-full border border-sapphire-500/20 bg-sapphire-500/10 px-3 py-1 text-[11px] font-semibold tracking-wider uppercase text-sapphire-600 dark:text-sapphire-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-sapphire-500" />
+              Catalogue
+            </div>
+          </Reveal>
+          <Reveal delay={60}>
+            <h1 className="title mt-5 text-ink">Useful products for your work.</h1>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mt-4 max-w-[640px] text-[17px] leading-[1.6] text-ink/70">
+              {products.length === 0
+                ? "No live products loaded yet. Create your products in the admin panel to display them here."
+                : `${products.length} active tools available. Fixed prices in ₹ INR. Select a plan and receive your license key instantly by email.`}
+            </p>
+          </Reveal>
         </div>
       </section>
-      <ProductBrowser products={products} initialFilter={initial} />
+      <ProductBrowser products={products} />
     </>
   );
 }

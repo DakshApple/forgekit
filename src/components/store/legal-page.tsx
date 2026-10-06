@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import { Icon } from "@/components/icons";
+import { RevealObserver } from "@/components/site/reveal-observer";
+import { Reveal } from "@/components/site/reveal";
 
 export function LegalPage({
   title,
@@ -13,44 +15,50 @@ export function LegalPage({
   children: ReactNode;
 }) {
   return (
-    <div className="relative overflow-hidden pt-12 pb-28">
-      {/* Background ambient glow */}
-      <div className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-500/10 via-blue-600/5 to-transparent blur-3xl opacity-75" />
+    <>
+      <RevealObserver />
+      <div className="relative overflow-hidden pt-[120px] pb-32">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(59_130_246/0.08),transparent)] mix-blend-plus-lighter" />
 
-      <div className="wrap max-w-[920px]">
-        {/* Header */}
-        <div className="border-b border-ink/10 pb-10">
-          <div className="eyebrow inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-3 py-1 text-xs font-semibold text-sky-950">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
-            COMPLIANCE & LEGAL
+        <div className="wrap max-w-[840px]">
+          <div className="border-b border-ink/[0.06] pb-12">
+            <Reveal delay={0}>
+              <div className="inline-flex items-center gap-2 rounded-full border border-sapphire-500/20 bg-sapphire-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-sapphire-600 dark:text-sapphire-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-sapphire-500" />
+                Legal
+              </div>
+            </Reveal>
+            <Reveal delay={60}>
+              <h1 className="title mt-5">{title}</h1>
+            </Reveal>
+            {subtitle && (
+              <Reveal delay={120}>
+                <p className="mt-4 max-w-[640px] text-[17px] leading-[1.6] text-ink/70">
+                  {subtitle}
+                </p>
+              </Reveal>
+            )}
+            <Reveal delay={180}>
+              <div className="mt-6 flex flex-wrap items-center gap-4 text-[13px] font-medium text-ink/50">
+                <span className="inline-flex items-center gap-1.5">
+                  <Icon name="check" size={14} className="text-sapphire-500" strokeWidth={2.5} />
+                  Effective Date: {updated}
+                </span>
+                <span>•</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Icon name="lock" size={14} className="text-sapphire-500" />
+                  IT Act (India) & GDPR Compliant Framework
+                </span>
+              </div>
+            </Reveal>
           </div>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl md:text-5xl">
-            {title}
-          </h1>
-          {subtitle && (
-            <p className="mt-3 text-base font-normal leading-relaxed text-ink/75 max-w-[640px]">
-              {subtitle}
-            </p>
-          )}
-          <div className="mt-5 flex items-center gap-4 text-xs font-medium text-ink/60">
-            <span className="inline-flex items-center gap-1.5">
-              <Icon name="check" size={14} className="text-emerald-600" strokeWidth={2.5} />
-              Effective Date: {updated}
-            </span>
-            <span>•</span>
-            <span className="inline-flex items-center gap-1.5">
-              <Icon name="lock" size={14} className="text-sky-600" />
-              IT Act (India) & GDPR Compliant Framework
-            </span>
-          </div>
-        </div>
 
-        {/* Content Body */}
-        <div className="mt-12 space-y-10 text-[15px] font-normal leading-[1.75] text-ink/85">
-          {children}
+          <div className="mt-12 space-y-8 text-[15px] leading-[1.7] text-ink/80">
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -64,13 +72,13 @@ export function LegalSection({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-24 rounded-2xl border border-ink/10 bg-paper/90 p-6 sm:p-8 shadow-sm backdrop-blur-xl transition-all hover:border-ink/20">
-      <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-ink border-b border-ink/10 pb-3 mb-4">
+    <Reveal as="section" id={id} delay={180} className="scroll-mt-24 rounded-[20px] border border-ink/[0.08] bg-wash/50 p-6 shadow-sm backdrop-blur-md sm:p-10">
+      <h2 className="border-b border-ink/[0.06] pb-4 mb-6 text-[20px] font-bold tracking-[-0.01em] text-ink">
         {title}
       </h2>
-      <div className="space-y-4 text-sm sm:text-[15px] font-normal leading-relaxed text-ink/80">
+      <div className="space-y-4 text-[15px] leading-[1.7] text-ink/75">
         {children}
       </div>
-    </section>
+    </Reveal>
   );
 }

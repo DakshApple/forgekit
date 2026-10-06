@@ -3,74 +3,38 @@
 import { useMemo, useState } from "react";
 import { Icon } from "@/components/icons";
 import { ProductCard } from "@/components/product-card";
+import { Reveal } from "@/components/site/reveal";
 import type { Product } from "@/lib/types";
 
-type Filter = "all" | "monthly" | "one-time";
 type Sort = "newest" | "price-low" | "price-high" | "name";
 
 export function ProductBrowser({
   products,
-  initialFilter = "all",
 }: {
   products: Product[];
-  initialFilter?: Filter;
 }) {
-  const [filter, setFilter] = useState<Filter>(initialFilter);
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<Sort>("newest");
-
-  const counts = useMemo(
-    () => ({
-      all: products.length,
-      monthly: products.filter((p) => p.plans.some((x) => x.type === "monthly")).length,
-      "one-time": products.filter((p) => p.plans.some((x) => x.type === "one-time")).length,
-    }),
-    [products],
-  );
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
     const list = products.filter((p) => {
-      const matchesFilter = filter === "all" || p.plans.some((x) => x.type === filter);
       const matchesQuery =
         !q || p.name.toLowerCase().includes(q) || p.tagline.toLowerCase().includes(q);
-      return matchesFilter && matchesQuery;
+      return matchesQuery;
     });
     const min = (p: Product) => Math.min(...p.plans.map((x) => x.priceInr));
     if (sort === "price-low") list.sort((a, b) => min(a) - min(b));
     if (sort === "price-high") list.sort((a, b) => min(b) - min(a));
     if (sort === "name") list.sort((a, b) => a.name.localeCompare(b.name));
     return list;
-  }, [products, filter, query, sort]);
-
-  const chips: { id: Filter; label: string }[] = [
-    { id: "all", label: "All" },
-    { id: "monthly", label: "Monthly" },
-    { id: "one-time", label: "One-time" },
-  ];
+  }, [products, query, sort]);
 
   return (
     <>
-      <div className="wrap flex flex-wrap items-center justify-between gap-4 pb-2 pt-8">
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by billing">
-          {chips.map((c) => (
-            <button
-              key={c.id}
-              type="button"
-              onClick={() => setFilter(c.id)}
-              aria-pressed={filter === c.id}
-              className={`inline-flex h-10 items-center rounded-xl border px-4 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
-                filter === c.id
-                  ? "border-ink bg-ink text-paper shadow-md"
-                  : "border-ink/15 bg-paper/80 text-ink/80 hover:bg-wash hover:border-sky-600/30"
-              }`}
-            >
-              {c.label} ({counts[c.id]})
-            </button>
-          ))}
-        </div>
+      <div className="wrap sticky top-[64px] z-10 flex flex-wrap items-center justify-end gap-4 border-b border-ink/[0.04] bg-paper/80 py-4 backdrop-blur-xl">
         <div className="flex flex-wrap gap-3">
-          <label className="flex h-10 min-w-[260px] items-center gap-2.5 rounded-xl border border-ink/15 bg-paper/90 backdrop-blur-md px-3.5 shadow-sm transition-all focus-within:border-sky-600 focus-within:ring-2 focus-within:ring-sky-100">
+          <label className="flex h-10 min-w-[260px] items-center gap-2.5 rounded-xl border border-ink/[0.08] bg-wash/50 px-3.5 shadow-sm transition-all focus-within:border-sapphire-500/50 focus-within:ring-2 focus-within:ring-sapphire-500/10 hover:border-ink/[0.15]">
             <Icon name="search" size={16} className="text-ink/50" />
             <input
               type="search"
@@ -78,45 +42,50 @@ export function ProductBrowser({
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search by tool name or feature..."
               aria-label="Search products"
-              className="w-full bg-transparent text-xs sm:text-sm font-medium outline-none placeholder:text-ink/40"
+              className="w-full bg-transparent text-[14px] font-medium text-ink outline-none placeholder:text-ink/50"
             />
           </label>
-          <label className="flex h-10 items-center gap-2 rounded-xl border border-ink/15 bg-paper/90 backdrop-blur-md px-3.5 text-xs font-semibold uppercase tracking-wider text-ink/80 shadow-sm">
+          <label className="flex h-10 items-center gap-2 rounded-xl border border-ink/[0.08] bg-wash/50 px-3.5 text-[12px] font-semibold uppercase tracking-wider text-ink/70 shadow-sm hover:border-ink/[0.15]">
             <span className="sr-only">Sort products</span>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as Sort)}
-              className="bg-transparent outline-none cursor-pointer"
+              className="cursor-pointer bg-transparent outline-none"
             >
               <option value="newest">Sort: Newest</option>
-              <option value="price-low">Price: low to high</option>
-              <option value="price-high">Price: high to low</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
               <option value="name">Name</option>
             </select>
           </label>
         </div>
       </div>
 
-      <div className="wrap pb-20 pt-6">
+      <div className="wrap pb-24 pt-12">
         {visible.length === 0 ? (
-          <div className="rounded-2xl border border-ink/10 bg-paper/90 p-12 text-center shadow-sm backdrop-blur-xl">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-wash text-ink/50 mb-3">
+          <div className="flex flex-col items-center justify-center rounded-2xl border border-ink/[0.08] bg-wash/30 py-24 text-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-ink/[0.04] text-ink/40">
               <Icon name="search" size={24} />
             </div>
-            <div className="text-base font-bold text-ink">No matching products found</div>
-            <p className="mt-1 text-xs text-ink/65 max-w-[360px] mx-auto">
-              {query ? `No tools match "${query}". Try searching for another keyword or clear filters.` : "Create active products in the admin panel to populate this catalogue."}
+            <div className="mt-4 text-[16px] font-semibold text-ink">No matching products found</div>
+            <p className="mt-2 max-w-[360px] text-[14px] text-ink/60">
+              {query
+                ? `No tools match "${query}". Try searching for another keyword.`
+                : "Create active products in the admin panel to populate this catalogue."}
             </p>
           </div>
         ) : (
-          <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
-            {visible.map((p) => (
-              <ProductCard key={p.slug} product={p} />
+          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+            {visible.map((p, i) => (
+              <Reveal as="li" key={p.slug} delay={i * 40}>
+                <ProductCard product={p} />
+              </Reveal>
             ))}
-          </div>
+          </ul>
         )}
-        <p className="mt-10 text-xs font-normal leading-relaxed text-ink/65 border-t border-ink/10 pt-6">
-          * All prices are quoted in ₹ INR. Monthly subscriptions renew every month and can be cancelled anytime before renewal. One-time licenses provide perpetual access. License keys are issued automatically upon Razorpay payment verification.
+        
+        <p className="mt-16 border-t border-ink/[0.06] pt-8 text-[13px] leading-relaxed text-ink/50">
+          * All prices are quoted in ₹ INR. License keys are issued automatically upon Razorpay payment verification.
         </p>
       </div>
     </>

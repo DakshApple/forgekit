@@ -1,5 +1,5 @@
 import { SiteFooter } from "@/components/store/site-footer";
-import { SiteHeader } from "@/components/store/site-header";
+import { GlassNav } from "@/components/site/glass-nav";
 
 export default function StoreLayout({
   children,
@@ -7,10 +7,10 @@ export default function StoreLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <SiteHeader />
+    <div data-store className="store-root">
+      <GlassNav />
       <main>{children}</main>
       <SiteFooter />
-    </>
+    </div>
   );
 }
