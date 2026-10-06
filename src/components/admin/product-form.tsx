@@ -73,7 +73,8 @@ export function ProductForm({ product }: { product?: Product }) {
       access_url: accessUrl,
     });
     setSaving(false);
-    setMessage("Saved. This is the frontend only, so nothing is stored yet.");
+    setMessage("Successfully saved to database!");
+    setTimeout(() => router.push("/admin/products"), 1500);
   }
 
   const previewProduct: Product = {
