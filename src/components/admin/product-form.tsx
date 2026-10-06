@@ -233,6 +233,46 @@ export function ProductForm({ product }: { product?: Product }) {
             </div>
           </div>
         </section>
+
+        {editing && (
+          <section className="card p-6 md:p-7">
+            <h2 className="text-base font-bold">API Integration</h2>
+            <p className="mt-1 text-[13px] font-light text-ink/65">
+              Copy and paste this code directly into your {name || "software"} to activate and verify licenses automatically.
+            </p>
+            
+            <div className="mt-5 space-y-4">
+              <div>
+                <label className="label">1. Endpoint URL</label>
+                <div className="flex items-center gap-2 rounded-lg bg-tint px-3 py-2 text-sm font-mono text-ink">
+                  POST /api/v1/licenses/activate
+                </div>
+              </div>
+              
+              <div>
+                <label className="label">2. JavaScript Example</label>
+                <pre className="overflow-x-auto rounded-lg bg-ink p-4 text-[13px] leading-relaxed text-paper/90 shadow-inner">
+{`const response = await fetch("https://yourdomain.com/api/v1/licenses/activate", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    license_key: "USER_INPUTTED_KEY",
+    machine_id: "UNIQUE_DEVICE_ID",
+    product_slug: "${slug}"
+  })
+});
+
+const data = await response.json();
+if (data.valid) {
+  console.log("App Activated!");
+} else {
+  console.error(data.error);
+}`}
+                </pre>
+              </div>
+            </div>
+          </section>
+        )}
       </div>
 
       <aside className="w-full flex-none space-y-6 lg:sticky lg:top-8 lg:w-[360px]">
