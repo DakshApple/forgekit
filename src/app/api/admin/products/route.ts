@@ -60,7 +60,7 @@ export const POST = withAdmin(async (req) => {
     if (plans.length > 0) {
       const plansToInsert = plans.map((p: any) => ({
         product_id: product.id,
-        type: p.type,
+        type: p.type === "one-time" ? "one_time" : p.type,
         price: Math.round(p.priceInr * 100),
         active: true,
       }));
