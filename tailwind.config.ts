@@ -6,26 +6,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0A0B", // slightly cooler black
+        ink: "#0B132B", // Deep midnight dark
         paper: "#FFFFFF",
-        wash: "#FAFAFA",
-        tint: "#F4F4F5",
-        accent: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          500: '#6366f1', // Indigo
-          600: '#4f46e5',
-          900: '#312e81',
+        wash: "#F8FAFC", // Cool slate tint wash
+        tint: "#F1F5F9",
+        brand: {
+          50: '#f0f7ff',
+          100: '#e0effe',
+          500: '#0284c7', // Sapphire Electric
+          600: '#0369a1', // Deep Sapphire
+          700: '#075985',
+          800: '#0c4a6e',
+          900: '#0a2540', // Stripe-like Midnight Sapphire
         }
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"], // Switch to Inter for that premium SaaS look
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 2px 8px rgba(0,0,0,0.04)",
-        lift: "0 20px 40px rgba(0,0,0,0.08)",
-        float: "0 24px 48px rgba(0,0,0,0.12)",
-        glow: "0 0 20px rgba(99, 102, 241, 0.4)",
+        soft: "0 2px 8px rgba(10,37,64,0.04)",
+        lift: "0 20px 40px rgba(10,37,64,0.08)",
+        float: "0 24px 48px rgba(10,37,64,0.12)",
+        glow: "0 0 24px rgba(2, 132, 199, 0.35)",
       },
       letterSpacing: {
         tightest: "-0.04em",

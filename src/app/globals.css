@@ -19,11 +19,11 @@
     background-size: 24px 24px;
   }
   ::selection {
-    background: #4f46e5;
+    background: #0284c7;
     color: #fff;
   }
   :focus-visible {
-    outline: 2px solid #4f46e5;
+    outline: 2px solid #0284c7;
     outline-offset: 2px;
   }
 }

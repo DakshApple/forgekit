@@ -45,21 +45,21 @@ export default async function HomePage() {
       {/* hero */}
       <section className="relative overflow-hidden pt-6 pb-20 md:py-28">
         {/* Soft atmospheric gradient mesh */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-indigo-500/10 via-purple-500/5 to-transparent blur-3xl opacity-70" />
+        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-500/10 via-blue-600/5 to-transparent blur-3xl opacity-75" />
 
         <div className="wrap flex flex-wrap items-center gap-12 lg:gap-16">
           <div className="min-w-0 flex-1 basis-[500px]">
-            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-2 text-xs font-semibold text-indigo-950 backdrop-blur-md opacity-0 animate-fade-in-up">
+            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-sky-500/20 bg-sky-500/5 px-4 py-2 text-xs font-semibold text-sky-950 backdrop-blur-md opacity-0 animate-fade-in-up">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-indigo-600" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-600" />
               </span>
               Software Suite for Indian Small Businesses & Freelancers
             </div>
             
             <h1 className="h1 mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl md:text-[54px] leading-[1.12] opacity-0 animate-fade-in-up-delay">
               Simple business tools. <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-ink via-ink/90 to-indigo-700 bg-clip-text text-transparent">Fixed prices in ₹ INR.</span>
+              <span className="bg-gradient-to-r from-ink via-sky-950 to-sky-600 bg-clip-text text-transparent">Fixed prices in ₹ INR.</span>
             </h1>
 
             <p className="lead mt-6 max-w-[540px] text-base sm:text-lg leading-relaxed text-ink/75 opacity-0 animate-fade-in-up-delay-2">
@@ -69,18 +69,18 @@ export default async function HomePage() {
             {/* Seamless badge strip */}
             <div className="mt-8 flex flex-wrap gap-2.5 text-xs font-medium text-ink/80 opacity-0 animate-fade-in-up-delay-2">
               <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
-                <Icon name="check" size={14} className="text-indigo-600" strokeWidth={2.5} /> No subscription trap
+                <Icon name="check" size={14} className="text-sky-600" strokeWidth={2.5} /> No subscription trap
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
-                <Icon name="check" size={14} className="text-indigo-600" strokeWidth={2.5} /> Instant Email Delivery
+                <Icon name="check" size={14} className="text-sky-600" strokeWidth={2.5} /> Instant Email Delivery
               </span>
               <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
-                <Icon name="check" size={14} className="text-indigo-600" strokeWidth={2.5} /> Razorpay UPI & Cards
+                <Icon name="check" size={14} className="text-sky-600" strokeWidth={2.5} /> Razorpay UPI & Cards
               </span>
             </div>
 
             <div className="mt-9 flex flex-wrap items-center gap-4 opacity-0 animate-fade-in-up-delay-2">
-              <ButtonLink href="/products" className="h-12 px-7 text-base shadow-lg shadow-ink/10 transition-all hover:scale-[1.02] hover:shadow-xl">
+              <ButtonLink href="/products" className="h-12 px-7 text-base shadow-lg shadow-sky-900/10 transition-all hover:scale-[1.02] hover:shadow-xl">
                 Browse products <Icon name="arrow" size={18} />
               </ButtonLink>
               <ButtonLink href="/#how" variant="secondary" className="h-12 px-6 text-base border-ink/15 hover:bg-wash transition-all">
@@ -116,7 +116,7 @@ export default async function HomePage() {
                       <div className="text-[11px] text-ink/60">No password or sign up required</div>
                     </div>
                   </div>
-                  <span className="text-[11px] font-medium text-indigo-600 bg-indigo-50 px-2 py-1 rounded">₹ INR</span>
+                  <span className="text-[11px] font-medium text-sky-700 bg-sky-50 px-2 py-1 rounded">₹ INR</span>
                 </div>
 
                 <div className="flex items-center justify-between rounded-xl border border-ink/10 bg-wash/40 p-3.5 text-xs transition-all hover:border-ink/20">
@@ -130,7 +130,7 @@ export default async function HomePage() {
                   <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-1 rounded">100% Safe</span>
                 </div>
 
-                <div className="flex items-center justify-between rounded-xl border border-indigo-500/30 bg-ink text-paper p-4 text-xs font-medium shadow-lg">
+                <div className="flex items-center justify-between rounded-xl border border-sky-500/30 bg-ink text-paper p-4 text-xs font-medium shadow-lg">
                   <div className="flex items-center gap-3">
                     <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-paper text-ink font-bold text-xs">3</span>
                     <div>
@@ -143,14 +143,14 @@ export default async function HomePage() {
               </div>
 
               <div className="border-t border-ink/10 bg-wash/50 px-6 py-3.5 text-center text-xs text-ink/70 flex items-center justify-center gap-2">
-                <Icon name="lock" size={14} className="text-indigo-600" />
+                <Icon name="lock" size={14} className="text-sky-600" />
                 <span>30-Day Support Guarantee Included</span>
               </div>
             </div>
 
             {/* Floating Trust Badge */}
             <div className="absolute -left-4 bottom-2 flex items-center gap-3.5 rounded-xl border border-ink/15 bg-paper/95 px-4 py-3.5 shadow-2xl backdrop-blur-md md:-left-8">
-              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-indigo-600 text-paper shadow-md">
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-sky-600 text-paper shadow-md">
                 <Icon name="check" size={18} strokeWidth={2.5} />
               </span>
               <div>
@@ -167,7 +167,7 @@ export default async function HomePage() {
         <div className="wrap grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-4">
           {trust.map((t) => (
             <div key={t.title} className="group flex items-start gap-4 p-2 transition-all">
-              <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-ink/10 bg-wash text-ink transition-colors group-hover:border-indigo-500/30 group-hover:bg-indigo-500/5 group-hover:text-indigo-600">
+              <div className="flex h-10 w-10 flex-none items-center justify-center rounded-xl border border-ink/10 bg-wash text-ink transition-colors group-hover:border-sky-500/30 group-hover:bg-sky-500/5 group-hover:text-sky-600">
                 <Icon name={t.icon} size={20} strokeWidth={1.8} />
               </div>
               <div>
@@ -184,10 +184,10 @@ export default async function HomePage() {
         <div className="wrap">
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6 border-b border-ink/10 pb-8">
             <div>
-              <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Curated Suite</div>
+              <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-sky-600">Curated Suite</div>
               <h2 className="h2 text-3xl font-extrabold sm:text-4xl">Tools ready for your business</h2>
             </div>
-            <Link href="/products" className="group inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-indigo-600 transition-colors">
+            <Link href="/products" className="group inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-sky-600 transition-colors">
               Explore full catalogue <Icon name="arrow" size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -204,14 +204,14 @@ export default async function HomePage() {
       <section id="how" className="scroll-mt-20 border-y border-ink/10 bg-wash/40 py-20 md:py-28">
         <div className="wrap">
           <div className="text-center max-w-[600px] mx-auto">
-            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Simple 4-Step Process</div>
+            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-sky-600">Simple 4-Step Process</div>
             <h2 className="h2 text-3xl font-extrabold sm:text-4xl">From checkout to key in minutes</h2>
             <p className="mt-3 text-sm text-ink/70">No bloated onboarding calls or complex enterprise setups.</p>
           </div>
 
           <div className="mt-16 grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
             {steps.map((s, i) => (
-              <div key={s.title} className="relative rounded-2xl border border-ink/10 bg-paper p-7 shadow-sm transition-all hover:border-indigo-500/30 hover:shadow-md">
+              <div key={s.title} className="relative rounded-2xl border border-ink/10 bg-paper p-7 shadow-sm transition-all hover:border-sky-500/30 hover:shadow-md">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink text-paper text-sm font-bold shadow-md">
                   0{i + 1}
                 </div>
@@ -228,8 +228,8 @@ export default async function HomePage() {
         <div className="wrap">
           <div className="mb-14 flex flex-wrap items-end justify-between gap-6 border-b border-ink/10 pb-8">
             <div className="max-w-[540px]">
-              <div className="eyebrow mb-2.5 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-3 py-1 text-xs font-semibold text-indigo-700">
-                <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
+              <div className="eyebrow mb-2.5 inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/5 px-3 py-1 text-xs font-semibold text-sky-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
                 TRANSPARENCY FIRST
               </div>
               <h2 className="h2 text-3xl font-extrabold tracking-tight sm:text-4xl text-ink">Clear terms. No fine print surprises.</h2>
@@ -268,23 +268,23 @@ export default async function HomePage() {
             ].map((t) => (
               <div
                 key={t.title}
-                className="group relative flex flex-col justify-between rounded-2xl border border-ink/10 bg-paper/90 p-7 shadow-sm backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/5"
+                className="group relative flex flex-col justify-between rounded-2xl border border-ink/10 bg-paper/90 p-7 shadow-sm backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-sky-500/30 hover:shadow-xl hover:shadow-sky-500/5"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-ink/10 bg-wash text-ink transition-colors group-hover:border-indigo-500/30 group-hover:bg-indigo-600 group-hover:text-paper shadow-sm">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-ink/10 bg-wash text-ink transition-colors group-hover:border-sky-500/30 group-hover:bg-sky-600 group-hover:text-paper shadow-sm">
                       <Icon name={t.icon} size={20} strokeWidth={2} />
                     </div>
-                    <span className="rounded-full bg-wash border border-ink/10 px-2.5 py-0.5 text-[10px] font-bold text-ink/70 group-hover:border-indigo-500/20 group-hover:bg-indigo-50 group-hover:text-indigo-700 transition-colors">
+                    <span className="rounded-full bg-wash border border-ink/10 px-2.5 py-0.5 text-[10px] font-bold text-ink/70 group-hover:border-sky-500/20 group-hover:bg-sky-50 group-hover:text-sky-700 transition-colors">
                       {t.tag}
                     </span>
                   </div>
 
-                  <div className="mt-6 text-lg font-bold text-ink group-hover:text-indigo-950 transition-colors">{t.title}</div>
+                  <div className="mt-6 text-lg font-bold text-ink group-hover:text-sky-950 transition-colors">{t.title}</div>
                   <p className="mt-2.5 text-xs font-normal leading-relaxed text-ink/75">{t.body}</p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-ink/5 flex items-center gap-1.5 text-[11px] font-semibold text-ink/50 group-hover:text-indigo-600 transition-colors">
+                <div className="mt-6 pt-4 border-t border-ink/5 flex items-center gap-1.5 text-[11px] font-semibold text-ink/50 group-hover:text-sky-600 transition-colors">
                   <span>Guaranteed Policy</span>
                   <Icon name="check" size={12} strokeWidth={2.5} />
                 </div>
@@ -297,7 +297,7 @@ export default async function HomePage() {
       {/* Founder / About Section */}
       <section className="relative overflow-hidden bg-ink text-paper py-20 md:py-24">
         {/* Subtle dark glow */}
-        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-indigo-500/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
         
         <div className="wrap flex flex-wrap items-center justify-between gap-12">
           <div className="max-w-[620px] flex-1 basis-[460px]">
@@ -325,11 +325,11 @@ export default async function HomePage() {
       <section id="faq" className="scroll-mt-20 py-20 md:py-28">
         <div className="wrap flex flex-wrap gap-x-16 gap-y-12">
           <div className="min-w-0 flex-1 basis-[300px]">
-            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Need Clarity?</div>
+            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-sky-600">Need Clarity?</div>
             <h2 className="h2 text-3xl font-extrabold sm:text-4xl">Frequently asked questions</h2>
             <p className="mt-4 text-sm font-normal leading-relaxed text-ink/70">
               Have a question not listed here? Email us directly at{" "}
-              <a className="font-semibold text-ink underline underline-offset-4 hover:text-indigo-600" href={`mailto:${site.supportEmail}`}>
+              <a className="font-semibold text-ink underline underline-offset-4 hover:text-sky-600" href={`mailto:${site.supportEmail}`}>
                 {site.supportEmail}
               </a>
             </p>
@@ -338,7 +338,7 @@ export default async function HomePage() {
           <div className="min-w-0 flex-[2_1_500px]">
             {faqs.map((f, i) => (
               <details key={f.q} open={i === 0} className="group border-b border-ink/10 last:border-b-0">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-base font-bold leading-snug text-ink transition-colors group-open:text-indigo-600 [&::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-base font-bold leading-snug text-ink transition-colors group-open:text-sky-600 [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <span aria-hidden className="flex h-7 w-7 flex-none items-center justify-center rounded-full border border-ink/15 text-lg font-light transition-transform group-open:rotate-45">+</span>
                 </summary>

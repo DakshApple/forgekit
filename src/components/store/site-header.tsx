@@ -31,8 +31,8 @@ export function SiteHeader() {
                 href={l.href}
                 className={
                   isActive
-                    ? "text-indigo-600 font-bold"
-                    : "text-ink/70 hover:text-indigo-600 transition-colors"
+                    ? "text-sky-600 font-bold"
+                    : "text-ink/75 hover:text-sky-600 transition-colors"
                 }
               >
                 {l.label}
@@ -61,7 +61,7 @@ export function SiteHeader() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-ink/10 py-3.5 text-sm font-medium text-ink/80 hover:text-indigo-600"
+                className="border-b border-ink/10 py-3.5 text-sm font-medium text-ink/80 hover:text-sky-600"
               >
                 {l.label}
               </Link>
