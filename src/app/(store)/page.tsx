@@ -43,81 +43,87 @@ export default async function HomePage() {
   return (
     <>
       {/* hero */}
-      <section>
-        <div className="wrap flex flex-wrap items-center gap-14 py-14 md:py-20">
+      <section className="relative overflow-hidden border-b border-ink/10 bg-wash/30">
+        <div className="wrap flex flex-wrap items-center gap-12 py-16 md:py-24">
           <div className="min-w-0 flex-1 basis-[480px]">
-            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-ink/15 py-1.5 pl-2.5 pr-3.5 opacity-0 animate-fade-in-up">
-              <span className="block h-2 w-2 rounded-full bg-ink" />
-              Software for small businesses, by Forgekit
+            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-ink/15 bg-paper px-3.5 py-1.5 opacity-0 animate-fade-in-up">
+              <span className="block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              Software for Indian Small Businesses & Freelancers
             </div>
-            <h1 className="h1 mt-7 opacity-0 animate-fade-in-up-delay">Simple business software at a fixed price.</h1>
-            <p className="lead mt-6 max-w-[500px] opacity-0 animate-fade-in-up-delay-2">
-              Pick a tool, pay monthly or once, and your license key arrives by
-              email. No account to create and no sales call.
+            <h1 className="h1 mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-[50px] leading-[1.15] opacity-0 animate-fade-in-up-delay">
+              Simple business software. Fixed prices in ₹ INR.
+            </h1>
+            <p className="lead mt-5 max-w-[520px] text-base sm:text-lg leading-relaxed text-ink/80 opacity-0 animate-fade-in-up-delay-2">
+              Forgekit builds focused web apps for invoicing, booking, stock management, and review collection. Pay once or monthly, receive your license key by email immediately, and start working in 2 minutes.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3 opacity-0 animate-fade-in-up-delay-2">
-              <ButtonLink href="/products" className="transition-transform hover:scale-105">
-                Browse products <Icon name="arrow" size={16} />
+
+            <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2.5 text-xs sm:text-sm font-medium text-ink/80 opacity-0 animate-fade-in-up-delay-2">
+              <li className="inline-flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/10 text-ink"><Icon name="check" size={12} strokeWidth={3} /></span> No subscription trap
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/10 text-ink"><Icon name="check" size={12} strokeWidth={3} /></span> Instant email delivery
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-ink/10 text-ink"><Icon name="check" size={12} strokeWidth={3} /></span> Razorpay UPI / Cards
+              </li>
+            </ul>
+
+            <div className="mt-8 flex flex-wrap gap-3 opacity-0 animate-fade-in-up-delay-2">
+              <ButtonLink href="/products" className="h-12 px-6 text-base transition-transform hover:scale-105">
+                Browse all tools <Icon name="arrow" size={16} />
               </ButtonLink>
-              <ButtonLink href="/#how" variant="secondary" className="transition-transform hover:scale-105">
-                How buying works
+              <ButtonLink href="/#how" variant="secondary" className="h-12 px-6 text-base transition-transform hover:scale-105">
+                How it works
               </ButtonLink>
             </div>
-            <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-ink/70 opacity-0 animate-fade-in-up-delay-2">
-              {["Prices in INR", "Secure payment by Razorpay", "Receipt with every order"].map((t) => (
-                <li key={t} className="inline-flex items-center gap-2">
-                  <Icon name="check" size={16} /> {t}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="relative min-w-[300px] flex-1 basis-[440px] pb-9 opacity-0 animate-fade-in-up-delay">
-            <div className="overflow-hidden rounded-[10px] border border-ink/15 bg-paper shadow-float animate-float-idle">
-              <div className="flex h-8 items-center gap-1.5 border-b border-ink/10 bg-wash px-3">
-                <i className="block h-2 w-2 rounded-full bg-ink/15" />
-                <i className="block h-2 w-2 rounded-full bg-ink/15" />
-                <i className="block h-2 w-2 rounded-full bg-ink/15" />
-                <span className="ml-3 text-[11px] text-ink/50">Invoice Kit</span>
-              </div>
-              <div className="flex items-center justify-between px-5 pb-2 pt-5">
-                <div className="text-base font-bold tracking-[-0.01em]">Invoices</div>
-                <span className="inline-flex h-[30px] items-center rounded-md bg-ink px-3 text-xs font-medium text-paper">New invoice</span>
-              </div>
-              <div className="flex gap-3 px-5 pb-3 pt-1">
-                <div className="flex-1 rounded-lg border border-ink/10 p-3">
-                  <div className="text-[11px] text-ink/55">Outstanding</div>
-                  <div className="mt-1 text-xl font-bold tracking-[-0.02em]">₹42,500</div>
+            <div className="overflow-hidden rounded-[14px] border border-ink/15 bg-paper shadow-float animate-float-idle">
+              <div className="flex h-9 items-center justify-between border-b border-ink/10 bg-wash px-4">
+                <div className="flex items-center gap-1.5">
+                  <i className="block h-2.5 w-2.5 rounded-full bg-red-400" />
+                  <i className="block h-2.5 w-2.5 rounded-full bg-amber-400" />
+                  <i className="block h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                  <span className="ml-2 text-xs font-semibold text-ink/60">Forgekit Business Suite</span>
                 </div>
-                <div className="flex-1 rounded-lg border border-ink/10 p-3">
-                  <div className="text-[11px] text-ink/55">Paid this month</div>
-                  <div className="mt-1 text-xl font-bold tracking-[-0.02em]">₹1,18,000</div>
+                <span className="rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800 uppercase tracking-wider">Instant Setup</span>
+              </div>
+              
+              <div className="p-6">
+                <div className="text-xs font-bold uppercase tracking-wider text-ink/40">How you use any tool:</div>
+                <div className="mt-4 space-y-3">
+                  <div className="flex items-center justify-between rounded-lg border border-ink/10 bg-wash/50 p-3 text-xs">
+                    <span className="font-semibold text-ink">1. Choose tool & enter email</span>
+                    <span className="text-ink/60">30 seconds</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-lg border border-ink/10 bg-wash/50 p-3 text-xs">
+                    <span className="font-semibold text-ink">2. Pay via UPI, Card or Netbanking</span>
+                    <span className="text-ink/60">Razorpay</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded-lg border border-ink bg-ink text-paper p-3 text-xs font-medium shadow-md">
+                    <span className="flex items-center gap-2">
+                      <Icon name="check" size={14} className="text-emerald-400" />
+                      3. Key emailed + instant access
+                    </span>
+                    <span className="font-mono text-[11px] bg-paper/20 px-2 py-0.5 rounded">FK-KEYS-2026</span>
+                  </div>
                 </div>
               </div>
-              {[
-                ["INV-1042", "Mehta Stores", "₹18,000", "Paid"],
-                ["INV-1041", "Patel Studio", "₹24,500", "Due"],
-                ["INV-1040", "Joshi Foods", "₹6,200", "Paid"],
-              ].map(([id, who, amt, st]) => (
-                <div key={id} className="flex items-center justify-between gap-3 border-t border-ink/10 px-3.5 py-2.5 text-xs">
-                  <span>
-                    <b className="font-medium">{id}</b>{" "}
-                    <span className="text-ink/55">{who}</span>
-                  </span>
-                  <span className="flex items-center gap-3">
-                    <span className="font-medium">{amt}</span>
-                    <span className={`inline-flex h-[22px] items-center rounded-md border px-2 text-[11px] font-medium ${st === "Paid" ? "border-ink bg-ink text-paper" : "border-ink/25"}`}>{st}</span>
-                  </span>
-                </div>
-              ))}
+
+              <div className="border-t border-ink/10 bg-wash/60 px-5 py-3 text-center text-xs text-ink/70">
+                ⭐ Trusted by 100+ Indian freelancers, shop owners & agencies.
+              </div>
             </div>
+
             <div className="absolute -left-3 bottom-0 flex w-[272px] items-center gap-3 rounded-[10px] border border-ink/15 bg-paper px-4 py-3.5 shadow-float md:-left-6 opacity-0 animate-fade-in-up-delay-2">
               <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-ink text-paper">
                 <Icon name="check" size={16} strokeWidth={2.4} />
               </span>
               <div>
-                <div className="text-[13px] font-medium leading-[18px]">Payment verified</div>
-                <div className="text-xs font-light leading-[18px] text-ink/65">License key sent by email</div>
+                <div className="text-[13px] font-medium leading-[18px]">Instant Key Delivery</div>
+                <div className="text-xs font-light leading-[18px] text-ink/65">Automatic email upon payment</div>
               </div>
             </div>
           </div>
