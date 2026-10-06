@@ -13,6 +13,15 @@ export const POST = withAdmin(async (req, admin, { params }) => {
     const body = await req.json();
     const { status } = schema.parse(body);
 
+    const { data: license } = await db().from("licenses").select("order_id").eq("key", key).single();
+    
+    if (status === "revoked" && license) {
+      const { data: order } = await db().from("orders").select("razorpay_subscription_id").eq("id", license.order_id).single();
+      if (order?.razorpay_subscription_id) {
+        import("@/server/razorpay").then(m => m.razorpay.cancelSubscription(order.razorpay_subscription_id!)).catch(console.error);
+      }
+    }
+
     const { error } = await db()
       .from("licenses")
       .update({ status })

@@ -24,6 +24,7 @@ export function ProductForm({ product }: { product?: Product }) {
   const [tagline, setTagline] = useState(product?.tagline ?? "");
   const [description, setDescription] = useState(product?.description ?? "");
   const [features, setFeatures] = useState<string[]>(product?.features ?? [""]);
+  const [trialDays, setTrialDays] = useState(product?.trialDays ? String(product.trialDays) : "0");
   const monthlyPlan = product?.plans.find((p) => p.type === "monthly");
   const oncePlan = product?.plans.find((p) => p.type === "one-time");
   const [monthlyOn, setMonthlyOn] = useState(editing ? !!monthlyPlan : true);
@@ -46,6 +47,7 @@ export function ProductForm({ product }: { product?: Product }) {
     setMessage(null);
     const mp = Number(monthlyPrice);
     const op = Number(oncePrice);
+    const td = Number(trialDays);
     if (name.trim().length < 2) return setError("Give the product a name.");
     if (!slug) return setError("The product needs a URL slug.");
     if (!monthlyOn && !onceOn) return setError("Turn on at least one plan.");
@@ -61,6 +63,7 @@ export function ProductForm({ product }: { product?: Product }) {
       tagline,
       description,
       features: features.filter(Boolean),
+      trial_days: isNaN(td) ? 0 : td,
       plans: [
         ...(monthlyOn ? [{ type: "monthly", priceInr: mp }] : []),
         ...(onceOn ? [{ type: "one-time", priceInr: op }] : []),
@@ -178,6 +181,12 @@ export function ProductForm({ product }: { product?: Product }) {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 border-t border-ink/10 pt-6">
+            <Field label="Free Trial (Days)" htmlFor="trialDays" hint="Only applies to Monthly Subscriptions. Set 0 for no trial.">
+              <input id="trialDays" type="number" value={trialDays} onChange={(e) => setTrialDays(e.target.value)} className="input" placeholder="0" />
+            </Field>
           </div>
         </section>
 

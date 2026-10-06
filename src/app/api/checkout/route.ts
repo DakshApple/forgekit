@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     // 1. Find Plan and Product
     const { data: planData, error: planError } = await db()
       .from("plans")
-      .select("id, type, price, razorpay_plan_id, products (id, name)")
+      .select("id, type, price, razorpay_plan_id, products (id, name, trial_days)")
       .eq("id", input.planId)
       .eq("active", true)
       .single();
@@ -35,6 +35,7 @@ export async function POST(req: NextRequest) {
 
     const { type, price, products } = planData as any;
     const productId = products.id;
+    const trialDays = products.trial_days || 0;
     let rzpPlanId = planData.razorpay_plan_id;
 
     // 2. Just-in-time Razorpay Plan creation for subscriptions
@@ -72,9 +73,11 @@ export async function POST(req: NextRequest) {
     let rzpSubId: string | null = null;
 
     if (type === "monthly") {
+      const startAt = trialDays > 0 ? Math.floor(Date.now() / 1000) + (trialDays * 86400) : undefined;
       const sub = await razorpay.createSubscription({
         planId: rzpPlanId,
         notes: { planId: input.planId, email },
+        startAt,
       });
       rzpSubId = sub.id;
     } else {

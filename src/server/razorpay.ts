@@ -50,10 +50,13 @@ export const razorpay = {
     }),
 
   /** total_count is the maximum number of billing cycles (120 months). */
-  createSubscription: (a: { planId: string; notes: Record<string, string> }) =>
+  createSubscription: (a: { planId: string; notes: Record<string, string>; startAt?: number }) =>
     call<RzpSubscription>("POST", "/subscriptions", {
       plan_id: a.planId, total_count: 120, customer_notify: 1, notes: a.notes,
+      ...(a.startAt ? { start_at: a.startAt } : {}),
     }),
+
+  cancelSubscription: (id: string) => call<RzpSubscription>("POST", `/subscriptions/${encodeURIComponent(id)}/cancel`, { cancel_at_cycle_end: 0 }),
 
   fetchPayment: (id: string) => call<RzpPayment>("GET", `/payments/${encodeURIComponent(id)}`),
 
