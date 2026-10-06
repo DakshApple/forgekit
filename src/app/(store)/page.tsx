@@ -42,120 +42,158 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* hero */}
-      <section className="relative overflow-hidden pt-6 pb-20 md:py-28">
-        {/* Soft atmospheric gradient mesh */}
-        <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-500/10 via-blue-600/5 to-transparent blur-3xl opacity-75" />
+      {/* Hero Masterpiece Section */}
+      <section className="relative overflow-hidden pt-8 pb-20 md:py-28">
+        {/* Layered glowing ambient spotlights */}
+        <div className="pointer-events-none absolute -top-36 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-sky-500/15 via-blue-600/10 to-indigo-500/5 blur-3xl opacity-80" />
+        <div className="pointer-events-none absolute top-1/3 -right-32 -z-10 h-[400px] w-[400px] rounded-full bg-sky-400/10 blur-3xl" />
 
         <div className="wrap flex flex-wrap items-center gap-12 lg:gap-16">
+          {/* Left Hero Content */}
           <div className="min-w-0 flex-1 basis-[500px]">
-            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-sky-500/20 bg-sky-500/5 px-4 py-2 text-xs font-semibold text-sky-950 backdrop-blur-md opacity-0 animate-fade-in-up">
+            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-2 text-xs font-bold text-sky-950 shadow-sm backdrop-blur-md opacity-0 animate-fade-in-up">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-600" />
               </span>
-              Software Suite for Indian Small Businesses & Freelancers
+              Independent Software Suite for Indian Small Businesses
             </div>
             
-            <h1 className="h1 mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl md:text-[54px] leading-[1.12] opacity-0 animate-fade-in-up-delay">
-              Simple business tools. <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-ink via-sky-950 to-sky-600 bg-clip-text text-transparent">Fixed prices in ₹ INR.</span>
+            <h1 className="h1 mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl md:text-[56px] leading-[1.1] opacity-0 animate-fade-in-up-delay">
+              Own your business tools. <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-ink via-sky-950 to-sky-600 bg-clip-text text-transparent">Zero monthly bloat.</span>
             </h1>
 
             <p className="lead mt-6 max-w-[540px] text-base sm:text-lg leading-relaxed text-ink/75 opacity-0 animate-fade-in-up-delay-2">
-              Forgekit builds focused web apps for invoicing, booking, stock management, and review collection. Pay once or monthly, receive your license key by email immediately, and start working in under 2 minutes.
+              Forgekit builds clean, fast web apps for Invoicing, Booking, Stock Tracking, and Review Collection. Pay in ₹ INR, receive your license key instantly, and start working in under 2 minutes.
             </p>
 
-            {/* Seamless badge strip */}
-            <div className="mt-8 flex flex-wrap gap-2.5 text-xs font-medium text-ink/80 opacity-0 animate-fade-in-up-delay-2">
-              <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
-                <Icon name="check" size={14} className="text-sky-600" strokeWidth={2.5} /> No subscription trap
+            {/* Feature Value Pill Highlights */}
+            <div className="mt-8 flex flex-wrap gap-2.5 text-xs font-semibold text-ink/85 opacity-0 animate-fade-in-up-delay-2">
+              <span className="inline-flex items-center gap-2 rounded-xl border border-ink/10 bg-paper/90 px-3.5 py-2.5 shadow-sm backdrop-blur-md hover:border-sky-500/30 transition-all">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-sky-50 text-sky-600"><Icon name="check" size={13} strokeWidth={3} /></span> Lifetime & Monthly Plans
               </span>
-              <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
-                <Icon name="check" size={14} className="text-sky-600" strokeWidth={2.5} /> Instant Email Delivery
+              <span className="inline-flex items-center gap-2 rounded-xl border border-ink/10 bg-paper/90 px-3.5 py-2.5 shadow-sm backdrop-blur-md hover:border-sky-500/30 transition-all">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-sky-50 text-sky-600"><Icon name="check" size={13} strokeWidth={3} /></span> Instant Email License Key
               </span>
-              <span className="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-paper/90 px-3 py-2 shadow-sm backdrop-blur-md">
-                <Icon name="check" size={14} className="text-sky-600" strokeWidth={2.5} /> Razorpay UPI & Cards
+              <span className="inline-flex items-center gap-2 rounded-xl border border-ink/10 bg-paper/90 px-3.5 py-2.5 shadow-sm backdrop-blur-md hover:border-sky-500/30 transition-all">
+                <span className="flex h-5 w-5 items-center justify-center rounded-md bg-sky-50 text-sky-600"><Icon name="check" size={13} strokeWidth={3} /></span> Razorpay UPI / Cards
               </span>
             </div>
 
+            {/* Action Buttons */}
             <div className="mt-9 flex flex-wrap items-center gap-4 opacity-0 animate-fade-in-up-delay-2">
-              <ButtonLink href="/products" className="h-12 px-7 text-base shadow-lg shadow-sky-900/10 transition-all hover:scale-[1.02] hover:shadow-xl">
-                Browse products <Icon name="arrow" size={18} />
+              <ButtonLink href="/products" className="h-13 px-8 text-base shadow-xl shadow-sky-950/15 transition-all hover:scale-[1.02] hover:shadow-2xl">
+                Explore tools & prices <Icon name="arrow" size={18} />
               </ButtonLink>
-              <ButtonLink href="/#how" variant="secondary" className="h-12 px-6 text-base border-ink/15 hover:bg-wash transition-all">
-                How it works
+              <ButtonLink href="/#how" variant="secondary" className="h-13 px-7 text-base border-ink/15 hover:bg-wash transition-all">
+                How buying works
               </ButtonLink>
             </div>
           </div>
 
-          {/* Hero interactive visual */}
-          <div className="relative min-w-[320px] flex-1 basis-[440px] opacity-0 animate-fade-in-up-delay">
-            <div className="relative overflow-hidden rounded-2xl border border-ink/15 bg-paper/90 shadow-2xl backdrop-blur-xl animate-float-idle">
-              {/* Window header */}
-              <div className="flex h-10 items-center justify-between border-b border-ink/10 bg-wash/80 px-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-rose-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-amber-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-400/80" />
-                  <span className="ml-2 text-[11px] font-semibold tracking-wider text-ink/50 uppercase">Forgekit License Engine</span>
-                </div>
-                <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-[10px] font-bold text-emerald-700">
-                  Instant Access
-                </span>
-              </div>
+          {/* Right Hero Creative Interactive Engine Showcase */}
+          <div className="relative min-w-[320px] flex-1 basis-[460px] opacity-0 animate-fade-in-up-delay">
+            {/* Main Elevated Glass Card Container */}
+            <div className="relative overflow-hidden rounded-3xl border border-ink/15 bg-paper/90 shadow-2xl backdrop-blur-2xl transition-all hover:border-sky-500/30">
               
-              <div className="p-6 sm:p-7 space-y-4">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-ink/40">3-Step Seamless Purchase:</div>
-                
-                <div className="flex items-center justify-between rounded-xl border border-ink/10 bg-wash/40 p-3.5 text-xs transition-all hover:border-ink/20">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-paper font-bold text-xs">1</span>
-                    <div>
-                      <div className="font-semibold text-ink">Choose Product & Enter Email</div>
-                      <div className="text-[11px] text-ink/60">No password or sign up required</div>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-medium text-sky-700 bg-sky-50 px-2 py-1 rounded">₹ INR</span>
+              {/* Window Title Bar */}
+              <div className="flex h-11 items-center justify-between border-b border-ink/10 bg-wash/80 px-5">
+                <div className="flex items-center gap-2">
+                  <span className="h-3 w-3 rounded-full bg-rose-400/90" />
+                  <span className="h-3 w-3 rounded-full bg-amber-400/90" />
+                  <span className="h-3 w-3 rounded-full bg-emerald-400/90" />
+                  <span className="ml-2 text-[11px] font-bold tracking-wider text-ink/60 uppercase">Forgekit Engine v2.4</span>
                 </div>
-
-                <div className="flex items-center justify-between rounded-xl border border-ink/10 bg-wash/40 p-3.5 text-xs transition-all hover:border-ink/20">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-paper font-bold text-xs">2</span>
-                    <div>
-                      <div className="font-semibold text-ink">Pay via Razorpay</div>
-                      <div className="text-[11px] text-ink/60">UPI, Netbanking, Cards</div>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-1 rounded">100% Safe</span>
-                </div>
-
-                <div className="flex items-center justify-between rounded-xl border border-sky-500/30 bg-ink text-paper p-4 text-xs font-medium shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-paper text-ink font-bold text-xs">3</span>
-                    <div>
-                      <div className="font-bold text-paper">License Key Issued</div>
-                      <div className="text-[11px] text-paper/70">Emailed & displayed instantly</div>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] bg-paper/20 px-2 py-1 rounded text-paper font-bold">FK-9042-X</span>
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  </span>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
+                    Operational
+                  </span>
                 </div>
               </div>
 
-              <div className="border-t border-ink/10 bg-wash/50 px-6 py-3.5 text-center text-xs text-ink/70 flex items-center justify-center gap-2">
+              {/* Card Body Interactive Simulation */}
+              <div className="p-6 sm:p-7 space-y-5">
+                <div className="flex items-center justify-between border-b border-ink/10 pb-4">
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-ink/40">Sample License Flow</div>
+                    <div className="text-sm font-extrabold text-ink mt-0.5">Invoice Kit — One-Time Plan</div>
+                  </div>
+                  <span className="font-mono text-xs font-extrabold text-sky-700 bg-sky-50 border border-sky-500/20 px-3 py-1 rounded-lg">
+                    ₹4,999 INR
+                  </span>
+                </div>
+
+                {/* 3 Step Visual Pipeline */}
+                <div className="space-y-3">
+                  <div className="group flex items-center justify-between rounded-xl border border-ink/10 bg-wash/60 p-3.5 text-xs transition-all hover:border-sky-500/30 hover:bg-paper">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-paper font-bold text-xs shadow-sm">1</span>
+                      <div>
+                        <div className="font-bold text-ink">Enter Buyer Email</div>
+                        <div className="text-[11px] text-ink/60">No account password required</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-semibold text-emerald-700">Verified</span>
+                  </div>
+
+                  <div className="group flex items-center justify-between rounded-xl border border-ink/10 bg-wash/60 p-3.5 text-xs transition-all hover:border-sky-500/30 hover:bg-paper">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-ink text-paper font-bold text-xs shadow-sm">2</span>
+                      <div>
+                        <div className="font-bold text-ink">Razorpay Payment Gateway</div>
+                        <div className="text-[11px] text-ink/60">UPI / GPay / Netbanking</div>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-semibold text-sky-700 bg-sky-50 px-2 py-0.5 rounded">UPI Instant</span>
+                  </div>
+
+                  <div className="flex items-center justify-between rounded-xl border border-sky-500/40 bg-ink text-paper p-4 text-xs font-medium shadow-xl">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-paper text-ink font-bold text-xs shadow-sm">3</span>
+                      <div>
+                        <div className="font-bold text-paper">License Key Dispatched</div>
+                        <div className="text-[11px] text-paper/70">Emailed to buyer inbox</div>
+                      </div>
+                    </div>
+                    <span className="font-mono text-[11px] font-bold bg-paper/20 text-paper border border-paper/30 px-2.5 py-1 rounded-lg">
+                      IK-9842-PRO
+                    </span>
+                  </div>
+                </div>
+
+                {/* Micro Metric Banner */}
+                <div className="grid grid-cols-2 gap-3 pt-1">
+                  <div className="rounded-xl border border-ink/10 bg-wash/50 p-3 text-center">
+                    <div className="text-[10px] font-semibold uppercase tracking-wider text-ink/50">Fulfilment Speed</div>
+                    <div className="text-sm font-extrabold text-ink mt-0.5">&lt; 3 Seconds</div>
+                  </div>
+                  <div className="rounded-xl border border-ink/10 bg-wash/50 p-3 text-center">
+                    <div className="text-[10px] font-semibold uppercase tracking-wider text-ink/50">Money-Back Period</div>
+                    <div className="text-sm font-extrabold text-emerald-700 mt-0.5">7 Days Full Refund</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Card Footer */}
+              <div className="border-t border-ink/10 bg-wash/80 px-6 py-3.5 text-center text-xs text-ink/70 flex items-center justify-center gap-2">
                 <Icon name="lock" size={14} className="text-sky-600" />
-                <span>30-Day Support Guarantee Included</span>
+                <span>PCI-DSS Level 1 Encrypted Checkout</span>
               </div>
             </div>
 
-            {/* Floating Trust Badge */}
-            <div className="absolute -left-4 bottom-2 flex items-center gap-3.5 rounded-xl border border-ink/15 bg-paper/95 px-4 py-3.5 shadow-2xl backdrop-blur-md md:-left-8">
-              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-sky-600 text-paper shadow-md">
-                <Icon name="check" size={18} strokeWidth={2.5} />
+            {/* Creative Floating Badge Overlay */}
+            <div className="absolute -left-4 -bottom-4 flex items-center gap-3.5 rounded-2xl border border-ink/15 bg-paper/95 p-4 shadow-2xl backdrop-blur-xl md:-left-8">
+              <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-sky-600 text-paper shadow-md">
+                <Icon name="check" size={20} strokeWidth={2.5} />
               </span>
               <div>
-                <div className="text-xs font-bold text-ink">Instant Email Fulfilment</div>
-                <div className="text-[11px] font-medium text-ink/60">No manual waiting period</div>
+                <div className="text-xs font-extrabold text-ink">100% Automated Key Delivery</div>
+                <div className="text-[11px] font-medium text-ink/65">Access your tools immediately</div>
               </div>
             </div>
           </div>
