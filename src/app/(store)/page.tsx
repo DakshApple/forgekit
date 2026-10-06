@@ -224,18 +224,70 @@ export default async function HomePage() {
       </section>
 
       {/* Pricing & Guarantee Terms Section */}
-      <section id="terms" className="scroll-mt-20 py-20 md:py-28">
+      <section id="terms" className="scroll-mt-20 py-20 md:py-28 relative overflow-hidden bg-wash/30">
         <div className="wrap">
-          <div className="mb-12 border-b border-ink/10 pb-8">
-            <div className="eyebrow mb-2 text-xs font-semibold uppercase tracking-wider text-indigo-600">Transparency First</div>
-            <h2 className="h2 text-3xl font-extrabold sm:text-4xl">Clear terms. No fine print surprises.</h2>
+          <div className="mb-14 flex flex-wrap items-end justify-between gap-6 border-b border-ink/10 pb-8">
+            <div className="max-w-[540px]">
+              <div className="eyebrow mb-2.5 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-3 py-1 text-xs font-semibold text-indigo-700">
+                <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
+                TRANSPARENCY FIRST
+              </div>
+              <h2 className="h2 text-3xl font-extrabold tracking-tight sm:text-4xl text-ink">Clear terms. No fine print surprises.</h2>
+            </div>
+            <p className="max-w-[400px] text-xs font-normal leading-relaxed text-ink/70">
+              We believe in honest software sales. Here is exactly how pricing, key delivery, cancellations, and refunds work.
+            </p>
           </div>
 
-          <div className="grid gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))]">
-            {terms.map((t) => (
-              <div key={t.title} className="rounded-2xl border border-ink/10 bg-paper/80 p-8 shadow-sm backdrop-blur-md transition-all hover:border-ink/20">
-                <div className="text-lg font-bold text-ink">{t.title}</div>
-                <p className="mt-3 text-xs leading-relaxed text-ink/75">{t.body}</p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: "invoice" as const,
+                tag: "Fixed Pricing",
+                title: "Pricing & Trials",
+                body: "Every product has a fixed price in ₹ INR. Select monthly subscriptions include a 7-day free trial. What you see at checkout is what you pay—zero hidden charges.",
+              },
+              {
+                icon: "mail" as const,
+                tag: "Instant Delivery",
+                title: "Key Delivery",
+                body: "Your unique license key is generated in real-time as soon as Razorpay verifies your payment. It is emailed immediately and displayed on your screen.",
+              },
+              {
+                icon: "close" as const,
+                tag: "1-Click Control",
+                title: "Easy Cancelling",
+                body: "You stay in complete control. Cancel monthly plans anytime before renewal by emailing us. Your key remains active through the end of your billing cycle.",
+              },
+              {
+                icon: "refund" as const,
+                tag: "Risk Free",
+                title: `${site.refundDays}-Day Refunds`,
+                body: `We stand behind our code. If a product doesn't perform as described on its page, email us within ${site.refundDays} days for a full, hassle-free refund.`,
+              },
+            ].map((t) => (
+              <div
+                key={t.title}
+                className="group relative flex flex-col justify-between rounded-2xl border border-ink/10 bg-paper/90 p-7 shadow-sm backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/5"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-ink/10 bg-wash text-ink transition-colors group-hover:border-indigo-500/30 group-hover:bg-indigo-600 group-hover:text-paper shadow-sm">
+                      <Icon name={t.icon} size={20} strokeWidth={2} />
+                    </div>
+                    <span className="rounded-full bg-wash border border-ink/10 px-2.5 py-0.5 text-[10px] font-bold text-ink/70 group-hover:border-indigo-500/20 group-hover:bg-indigo-50 group-hover:text-indigo-700 transition-colors">
+                      {t.tag}
+                    </span>
+                  </div>
+
+                  <div className="mt-6 text-lg font-bold text-ink group-hover:text-indigo-950 transition-colors">{t.title}</div>
+                  <p className="mt-2.5 text-xs font-normal leading-relaxed text-ink/75">{t.body}</p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-ink/5 flex items-center gap-1.5 text-[11px] font-semibold text-ink/50 group-hover:text-indigo-600 transition-colors">
+                  <span>Guaranteed Policy</span>
+                  <Icon name="check" size={12} strokeWidth={2.5} />
+                </div>
               </div>
             ))}
           </div>
