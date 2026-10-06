@@ -9,10 +9,18 @@ export const POST = withAdmin(async (req) => {
   const payload = await req.json();
   const { oldSlug, plans, ...productData } = payload;
   
+  if (productData.accessUrl !== undefined) {
+    productData.access_url = productData.accessUrl;
+    delete productData.accessUrl;
+  }
+  if (!productData.icon) {
+    productData.icon = "box";
+  }
+
   if (!productData.key_prefix) {
-    let p = productData.name.split(" ").map((w: string) => w[0]).join("").toUpperCase().replace(/[^A-Z]/g, "");
+    let p = productData.name?.split(" ").map((w: string) => w[0]).join("").toUpperCase().replace(/[^A-Z]/g, "") || "NEW";
     if (p.length < 2) p = (p + "XX").slice(0, 2);
-    productData.key_prefix = p.slice(0, 3) || "NEW";
+    productData.key_prefix = p.slice(0, 3);
   }
 
   // Find existing product ID by oldSlug if we are editing
