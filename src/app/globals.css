@@ -1,0 +1,55 @@
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  ::selection {
+    background: #0a0a0a;
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid #0a0a0a;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1200px] px-5 md:px-10;
+  }
+  .h1 {
+    @apply text-[40px] font-bold leading-[1.06] tracking-tightest md:text-[60px];
+  }
+  .h2 {
+    @apply text-[30px] font-bold leading-[1.12] tracking-[-0.03em] md:text-[38px];
+  }
+  .lead {
+    @apply text-[17px] font-light leading-[1.75] text-ink/75 md:text-[18px];
+  }
+  .eyebrow {
+    @apply text-[13px] font-medium leading-[18px] text-ink/60;
+  }
+  .card {
+    @apply rounded-xl border border-ink/15 bg-paper shadow-soft;
+  }
+  .card-hover {
+    @apply transition hover:border-ink/40 hover:shadow-lift;
+  }
+  .input {
+    @apply h-12 w-full rounded-lg border border-ink/30 bg-paper px-3.5 text-[15px] text-ink outline-none transition placeholder:text-ink/40 focus:border-ink focus:ring-4 focus:ring-ink/10;
+  }
+  .label {
+    @apply mb-2 block text-[13px] font-medium leading-[18px];
+  }
+}
