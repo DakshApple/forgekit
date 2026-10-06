@@ -8,6 +8,7 @@ import { PurchaseCard } from "@/components/store/purchase-card";
 import { Tag } from "@/components/ui";
 import { getProduct, getProducts } from "@/lib/data";
 import { site } from "@/lib/site";
+import { getAdmin } from "@/server/auth";
 
 type Params = { slug: string };
 
@@ -51,7 +52,8 @@ export default async function ProductPage({
 }) {
   const { slug } = await params;
   const product = await getProduct(slug);
-  if (!product || product.status !== "live") notFound();
+  const admin = await getAdmin();
+  if (!product || (product.status !== "live" && !admin)) notFound();
 
   const related = (await getProducts()).filter((p) => p.slug !== slug).slice(0, 3);
   const billingTags = product.plans.length > 1 ? "Monthly or one-time" : product.plans[0].type === "monthly" ? "Monthly" : "One-time";
