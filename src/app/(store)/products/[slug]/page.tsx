@@ -26,7 +26,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) return {};
-  return { title: product.name, description: product.tagline };
+  
+  return { 
+    title: product.name, 
+    description: product.tagline,
+    openGraph: {
+      title: product.name,
+      description: product.tagline,
+      url: `/products/${slug}`,
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.name,
+      description: product.tagline,
+    }
+  };
 }
 
 export default async function ProductPage({

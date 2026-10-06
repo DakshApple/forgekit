@@ -55,6 +55,7 @@ export function ProductForm({ product }: { product?: Product }) {
 
     setSaving(true);
     await saveProduct({
+      oldSlug: product?.slug,
       slug,
       name,
       tagline,

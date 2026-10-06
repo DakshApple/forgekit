@@ -48,11 +48,8 @@ export async function updateLicenseStatus(
 }
 
 export async function saveProduct(payload: any): Promise<void> {
-  const slug = payload.slug;
-  const url = slug ? `/api/admin/products/${encodeURIComponent(slug)}` : "/api/admin/products";
-  const method = slug ? "PUT" : "POST";
-  const res = await fetch(url, {
-    method,
+  const res = await fetch("/api/admin/products", {
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
