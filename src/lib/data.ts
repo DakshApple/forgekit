@@ -30,12 +30,13 @@ type ProductRow = {
   status: "live" | "draft";
   access_url: string | null;
   key_prefix: string;
+  trial_days: number;
   updated_at: string;
   plans: PlanRow[];
 };
 
 const SELECT =
-  "slug,name,tagline,description,features,icon,preview,status,access_url,key_prefix,updated_at,plans(id,type,price,active)";
+  "slug,name,tagline,description,features,icon,preview,status,access_url,key_prefix,trial_days,updated_at,plans(id,type,price,active)";
 
 const dateFormat = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
@@ -66,6 +67,7 @@ function toProduct(row: ProductRow): Product {
     updatedAt: dateFormat.format(new Date(row.updated_at)),
     accessUrl: row.access_url,
     keyPrefix: row.key_prefix,
+    trialDays: row.trial_days || 0,
     // Monthly first, then one-time, so the UI order is stable.
     plans: row.plans
       .filter((p) => p.active)

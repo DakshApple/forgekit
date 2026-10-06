@@ -33,6 +33,7 @@ export const products: SeedProduct[] = [
     },
     status: "live",
     updatedAt: "28 Sep 2026",
+    trialDays: 7,
   },
   {
     slug: "booking-kit",
@@ -58,6 +59,7 @@ export const products: SeedProduct[] = [
     },
     status: "live",
     updatedAt: "21 Sep 2026",
+    trialDays: 7,
   },
   {
     slug: "review-kit",
@@ -83,6 +85,7 @@ export const products: SeedProduct[] = [
     },
     status: "live",
     updatedAt: "14 Sep 2026",
+    trialDays: 7,
   },
   {
     slug: "stock-kit",
@@ -108,6 +111,7 @@ export const products: SeedProduct[] = [
     },
     status: "live",
     updatedAt: "2 Sep 2026",
+    trialDays: 0,
   },
   {
     slug: "quote-kit",
@@ -133,6 +137,7 @@ export const products: SeedProduct[] = [
     },
     status: "live",
     updatedAt: "30 Aug 2026",
+    trialDays: 0,
   },
   {
     slug: "lead-kit",
@@ -158,5 +163,6 @@ export const products: SeedProduct[] = [
     },
     status: "live",
     updatedAt: "19 Aug 2026",
+    trialDays: 7,
   },
 ];

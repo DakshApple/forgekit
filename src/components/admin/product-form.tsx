@@ -95,6 +95,7 @@ export function ProductForm({ product }: { product?: Product }) {
     updatedAt: "",
     accessUrl: null,
     keyPrefix: product?.keyPrefix ?? "",
+    trialDays: isNaN(Number(trialDays)) ? 0 : Number(trialDays),
   };
 
   return (

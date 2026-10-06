@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Logo({
   variant = "black",
@@ -9,13 +10,14 @@ export function Logo({
   width?: number;
   href?: string | null;
 }) {
-  // eslint-disable-next-line @next/next/no-img-element
   const img = (
-    <img
+    <Image
       src={variant === "black" ? "/logo-black.png" : "/logo-white.png"}
       alt="Forgekit"
       width={width}
+      height={width * 0.3} // Approximation, adjust based on actual aspect ratio
       style={{ width, height: "auto", display: "block" }}
+      priority
     />
   );
   if (!href) return img;
