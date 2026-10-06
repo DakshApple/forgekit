@@ -26,6 +26,7 @@ export type Product = {
   /** License key prefix, 2 to 6 capital letters. */
   keyPrefix: string;
   trialDays: number;
+  thumbnailUrl?: string;
 };
 
 export type OrderStatus = "paid" | "pending" | "failed" | "refunded";

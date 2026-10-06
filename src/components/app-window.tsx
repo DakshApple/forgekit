@@ -18,18 +18,24 @@ export function AppWindow({
         <i className="block h-2 w-2 rounded-full bg-ink/15" />
         <span className="ml-3 text-[11px] text-ink/50">{product.name}</span>
       </div>
-      <div className="px-3.5 pb-1 pt-3 text-[13px] font-bold">
-        {product.preview.title}
-      </div>
-      {product.preview.rows.map((r) => (
-        <div
-          key={r.label}
-          className="flex items-center justify-between gap-3 border-t border-ink/10 px-3.5 py-2.5 text-xs leading-4"
-        >
-          <span>{r.label}</span>
-          <span className="font-medium">{r.value}</span>
-        </div>
-      ))}
+      {product.thumbnailUrl ? (
+        <img src={product.thumbnailUrl} alt={product.name} className="block w-full" />
+      ) : (
+        <>
+          <div className="px-3.5 pb-1 pt-3 text-[13px] font-bold">
+            {product.preview.title}
+          </div>
+          {product.preview.rows.map((r) => (
+            <div
+              key={r.label}
+              className="flex items-center justify-between gap-3 border-t border-ink/10 px-3.5 py-2.5 text-xs leading-4"
+            >
+              <span>{r.label}</span>
+              <span className="font-medium">{r.value}</span>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }

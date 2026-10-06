@@ -58,3 +58,21 @@ export async function saveProduct(payload: any): Promise<void> {
     throw new Error(err.error || "Failed to save product");
   }
 }
+
+export async function uploadThumbnail(file: File): Promise<string> {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch("/api/admin/products/upload", {
+    method: "POST",
+    body: formData,
+  });
+  
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || "Failed to upload thumbnail");
+  }
+  
+  const data = await res.json();
+  return data.path;
+}

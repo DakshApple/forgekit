@@ -6,7 +6,7 @@ import { useState } from "react";
 import { AppWindow } from "@/components/app-window";
 import { Icon } from "@/components/icons";
 import { Button, Field } from "@/components/ui";
-import { saveProduct } from "@/lib/api";
+import { saveProduct, uploadThumbnail } from "@/lib/api";
 import { formatInr } from "@/lib/format";
 import type { Product } from "@/lib/types";
 
@@ -36,10 +36,21 @@ export function ProductForm({ product }: { product?: Product }) {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [thumbnailPath, setThumbnailPath] = useState(product?.thumbnailUrl ? product.thumbnailUrl.split("/").pop() : "");
+  const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
+  const [thumbnailPreview, setThumbnailPreview] = useState(product?.thumbnailUrl ?? "");
 
   function onName(v: string) {
     setName(v);
     if (!slugTouched) setSlug(slugify(v));
+  }
+
+  async function handleThumbnailChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) {
+      setThumbnailFile(file);
+      setThumbnailPreview(URL.createObjectURL(file));
+    }
   }
 
   async function onSubmit(e: React.FormEvent) {
@@ -56,25 +67,37 @@ export function ProductForm({ product }: { product?: Product }) {
     setError(null);
 
     setSaving(true);
-    await saveProduct({
-      oldSlug: product?.slug,
-      slug,
-      name,
-      tagline,
-      description,
-      features: features.filter(Boolean),
-      trial_days: isNaN(td) ? 0 : td,
-      icon: "box",
-      plans: [
-        ...(monthlyOn ? [{ type: "monthly", priceInr: mp }] : []),
-        ...(onceOn ? [{ type: "one-time", priceInr: op }] : []),
-      ],
-      status: live ? "live" : "draft",
-      access_url: accessUrl,
-    });
-    setSaving(false);
-    setMessage("Successfully saved to database!");
-    setTimeout(() => router.push("/admin/products"), 1500);
+    let finalThumbnailPath = thumbnailPath;
+
+    try {
+      if (thumbnailFile) {
+        finalThumbnailPath = await uploadThumbnail(thumbnailFile);
+      }
+      
+      await saveProduct({
+        oldSlug: product?.slug,
+        slug,
+        name,
+        tagline,
+        description,
+        features: features.filter(Boolean),
+        trial_days: isNaN(td) ? 0 : td,
+        icon: "box",
+        thumbnail_path: finalThumbnailPath || null,
+        plans: [
+          ...(monthlyOn ? [{ type: "monthly", priceInr: mp }] : []),
+          ...(onceOn ? [{ type: "one-time", priceInr: op }] : []),
+        ],
+        status: live ? "live" : "draft",
+        access_url: accessUrl,
+      });
+      setMessage("Successfully saved to database!");
+      setTimeout(() => router.push("/admin/products"), 1500);
+    } catch (err: any) {
+      setError(err.message || "An error occurred");
+    } finally {
+      setSaving(false);
+    }
   }
 
   const previewProduct: Product = {
@@ -98,6 +121,7 @@ export function ProductForm({ product }: { product?: Product }) {
     accessUrl: null,
     keyPrefix: product?.keyPrefix ?? "",
     trialDays: isNaN(Number(trialDays)) ? 0 : Number(trialDays),
+    thumbnailUrl: thumbnailPreview || undefined,
   };
 
   return (
@@ -250,10 +274,16 @@ export function ProductForm({ product }: { product?: Product }) {
           <p className="mt-1 text-[13px] font-light text-ink/65">
             Optional. Upload a product screenshot (PNG or JPG). Needs file storage in the backend.
           </p>
-          <label className="mt-4 flex h-28 cursor-pointer flex-col items-center justify-center gap-2 rounded-[10px] border border-dashed border-ink/40 text-sm text-ink/70 hover:bg-tint">
-            <Icon name="upload" size={20} />
-            Choose a file
-            <input type="file" accept="image/png,image/jpeg" className="sr-only" />
+          <label className="mt-4 flex h-28 cursor-pointer flex-col items-center justify-center gap-2 rounded-[10px] border border-dashed border-ink/40 text-sm text-ink/70 hover:bg-tint overflow-hidden relative">
+            {thumbnailPreview ? (
+              <img src={thumbnailPreview} alt="Thumbnail preview" className="absolute inset-0 h-full w-full object-cover" />
+            ) : (
+              <>
+                <Icon name="upload" size={20} />
+                Choose a file
+              </>
+            )}
+            <input type="file" accept="image/png,image/jpeg" onChange={handleThumbnailChange} className="sr-only" />
           </label>
         </section>
 
