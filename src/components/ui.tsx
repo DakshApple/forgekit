@@ -5,12 +5,12 @@ import type { LicenseStatus, OrderStatus } from "@/lib/types";
 type Variant = "primary" | "secondary" | "inverse" | "ghost-inverse";
 
 const base =
-  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-lg border text-[15px] font-medium transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100";
+  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-xl border text-[15px] font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100";
 
 const variants: Record<Variant, string> = {
-  primary: "border-accent-600 bg-gradient-to-b from-accent-500 to-accent-600 text-paper shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:from-accent-600 hover:to-accent-900",
-  secondary: "border-ink/10 bg-paper/80 backdrop-blur-md text-ink shadow-soft hover:bg-tint hover:border-ink/20",
-  inverse: "border-paper bg-paper text-ink shadow-soft hover:bg-paper/90",
+  primary: "border-ink bg-ink text-paper shadow-md shadow-ink/10 hover:bg-sky-950 hover:border-sky-950 hover:shadow-lg",
+  secondary: "border-ink/15 bg-paper text-ink shadow-sm hover:bg-wash hover:border-sky-600/40 hover:text-sky-950",
+  inverse: "border-paper bg-paper text-ink shadow-md hover:bg-paper/90",
   "ghost-inverse": "border-paper/20 bg-transparent text-paper hover:bg-paper/10",
 };
 
