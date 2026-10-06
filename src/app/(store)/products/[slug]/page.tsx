@@ -57,7 +57,7 @@ export default async function ProductPage({
   const billingTags = product.plans.length > 1 ? "Monthly or one-time" : product.plans[0].type === "monthly" ? "Monthly" : "One-time";
 
   const details = [
-    ["Made by", "Genartml"],
+    ["Made by", "Forgekit"],
     ["Works in", "Any modern browser"],
     ["Last updated", product.updatedAt],
     ["Refunds", `Within ${site.refundDays} days of purchase`],

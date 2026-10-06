@@ -5,7 +5,7 @@ import type { LicenseStatus, OrderStatus } from "@/lib/types";
 type Variant = "primary" | "secondary" | "inverse" | "ghost-inverse";
 
 const base =
-  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-lg border text-[15px] font-medium transition disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-lg border text-[15px] font-medium transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100";
 
 const variants: Record<Variant, string> = {
   primary: "border-ink bg-ink text-paper hover:bg-ink/85",

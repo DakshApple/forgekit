@@ -48,7 +48,7 @@ export default async function HomePage() {
           <div className="min-w-0 flex-1 basis-[480px]">
             <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-ink/15 py-1.5 pl-2.5 pr-3.5 opacity-0 animate-fade-in-up">
               <span className="block h-2 w-2 rounded-full bg-ink" />
-              Software for small businesses, by Genartml
+              Software for small businesses, by Forgekit
             </div>
             <h1 className="h1 mt-7 opacity-0 animate-fade-in-up-delay">Simple business software at a fixed price.</h1>
             <p className="lead mt-6 max-w-[500px] opacity-0 animate-fade-in-up-delay-2">
@@ -199,11 +199,10 @@ export default async function HomePage() {
         <div className="wrap flex flex-wrap items-center justify-between gap-10 py-20">
           <div className="max-w-[640px] flex-1 basis-[480px]">
             <div className="text-[13px] font-medium text-paper/60">Who is behind this</div>
-            <h2 className="h2 mt-3.5">Built and supported by Genartml.</h2>
+            <h2 className="h2 mt-3.5">Built and supported by Daksh & Forgekit.</h2>
             <p className="mt-5 text-base font-light leading-7 text-paper/80">
-              Genartml is an AI and workflow automation company based in
-              Ahmedabad, India. Forgekit is where we sell the small tools we
-              build. When you write to support, you reach the people who made
+              Forgekit is an independent software studio. This is where we sell the small tools we
+              build. When you write to support, you reach the people who actually made
               the product.
             </p>
           </div>
