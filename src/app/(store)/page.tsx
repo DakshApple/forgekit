@@ -20,18 +20,19 @@ const steps = [
 ];
 
 const terms = [
-  { title: "Pricing", body: "Every product has one fixed price, monthly or one-time, shown on its page. Prices are in INR. The amount at checkout is the amount you pay." },
-  { title: "Delivery", body: "Your license key is created when Razorpay confirms the payment, then emailed to you and shown on the confirmation page." },
-  { title: "Cancelling", body: "Monthly plans can be stopped before the next renewal date by emailing us. One-time purchases do not renew." },
-  { title: "Refunds", body: `If the product does not do what its page says, write to us within ${site.refundDays} days of purchase and we will refund you. The full policy is on the refund policy page.` },
+  { title: "Pricing & Trials", body: "Every product has a fixed price. Some monthly subscriptions offer a 7-day free trial. The amount at checkout is what you pay. No hidden fees." },
+  { title: "Delivery", body: "Your license key is created instantly when Razorpay confirms the payment, then emailed to you and shown on the confirmation page." },
+  { title: "Cancelling", body: "You have full control. Monthly plans can be cancelled anytime before the next renewal date by emailing us. Your license stays active until the end of your billing cycle." },
+  { title: "Refunds", body: `We stand behind our products. If it doesn't do what the page says, write to us within ${site.refundDays} days for a full refund. The full policy is on the refund policy page.` },
 ];
 
 const faqs = [
-  { q: "Do I need an account?", a: "No. Your email and a payment are enough. The license key is sent to the email you enter at checkout." },
-  { q: "What is a license key?", a: "A code that proves you paid. You enter it where the product asks for it. We can mark it active, expired or revoked." },
-  { q: "What if my payment fails?", a: "You stay on checkout and can try again. No key is issued until the payment is verified. If money left your account without a key, email us your order number." },
-  { q: "Will I get a GST invoice?", a: "You get a receipt with every order. If you need your GSTIN on the invoice, add it at checkout." },
-  { q: "I did not get my key email. What now?", a: `Check spam first. The key is also shown on the confirmation page. Still missing? Email ${site.supportEmail} with your order number and we will resend it.` },
+  { q: "Do I need an account to buy?", a: "No. Your email and a payment are enough. Your license key is safely sent to the email you enter at checkout." },
+  { q: "How do 7-Day Free Trials work?", a: "If a product offers a trial, you'll enter your card details but won't be charged. You get 7 days to try the premium features. Cancel before day 7, and you pay nothing." },
+  { q: "How do I log into the apps I bought?", a: "Each app works differently. Some will just ask you to paste your License Key, while others might ask for your email and then verify your key." },
+  { q: "What happens if I cancel my subscription?", a: "Your license key will remain active until the end of the month you already paid for. After that, it will be automatically revoked." },
+  { q: "What if my payment fails?", a: "No key is issued until the payment is verified. If money left your account without a key, just email us your order number and we'll fix it instantly." },
+  { q: "Will I get a GST invoice?", a: "Yes, you get a tax receipt with every order. Just add your GSTIN at checkout and it will be included." },
 ];
 
 
