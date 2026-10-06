@@ -11,6 +11,7 @@
     "db:seed": "tsx --env-file=.env.local scripts/seed.ts"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.3.0",
     "@fontsource/poppins": "^5.1.0",
     "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.117.2",
