@@ -12,6 +12,7 @@ const nav: { href: string; label: string; icon: IconName }[] = [
   { href: "/admin/licenses", label: "Licenses", icon: "key" },
   { href: "/admin/orders", label: "Orders", icon: "invoice" },
   { href: "/admin/customers", label: "Customers", icon: "users" },
+  { href: "/admin/api", label: "API", icon: "terminal" },
 ];
 
 function Sidebar({ onNavigate, email }: { onNavigate?: () => void; email: string }) {
