@@ -304,9 +304,9 @@ export default async function HomePage() {
             <span className="inline-block rounded-full bg-paper/10 px-3.5 py-1.5 text-xs font-medium text-paper/80">
               Independent Studio
             </span>
-            <h2 className="h2 mt-4 text-3xl font-bold sm:text-4xl text-paper">Built and supported by Daksh & Forgekit.</h2>
+            <h2 className="h2 mt-4 text-3xl font-bold sm:text-4xl text-paper">Built and supported by Forgekit Software Studio.</h2>
             <p className="mt-5 text-sm font-normal leading-relaxed text-paper/80">
-              Forgekit is an independent Indian software studio. We design and maintain clean, fast, standalone tools for small businesses. When you reach out for help, you speak directly with the developers who built your product.
+              Forgekit is an independent software studio. We design and maintain clean, fast, standalone web tools for small businesses. When you reach out for support, you speak directly with the engineering team who built your product.
             </p>
           </div>
 

@@ -10,5 +10,5 @@ export const site = {
   /** Policy values shown in the UI. Decide the real ones, then edit here. */
   refundDays: 7,
   supportReply: "within one working day",
-  adminEmail: "daksh@forgekit.com",
+  adminEmail: "admin@forgekit.in",
 } as const;

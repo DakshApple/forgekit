@@ -131,7 +131,7 @@ export default function PrivacyPage() {
           In accordance with the Information Technology Act, 2000 and rules made thereunder, the contact details of our Grievance Officer are provided below:
         </p>
         <div className="mt-3 rounded-xl border border-ink/10 bg-wash/60 p-4 text-xs sm:text-sm space-y-1">
-          <div><strong>Grievance Officer:</strong> Daksh Suthar (Founder, Forgekit)</div>
+          <div><strong>Grievance Officer:</strong> Legal & Compliance Team (Forgekit)</div>
           <div><strong>Email:</strong> <a className="text-sky-600 underline font-medium" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a></div>
           <div><strong>Response Timeline:</strong> Within 48 hours of receipt of grievance.</div>
         </div>
