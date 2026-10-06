@@ -30,6 +30,7 @@ create table products (
   status      product_status not null default 'draft',
   access_url  text,
   key_prefix  text not null check (key_prefix ~ '^[A-Z]{2,6}$'),
+  trial_days  integer not null default 0,
   thumbnail_path text,
   created_at  timestamptz not null default now(),
   updated_at  timestamptz not null default now()
@@ -136,6 +137,17 @@ create table webhook_events (
   created_at   timestamptz not null default now()
 );
 
+-- ---------------------------------------------------- admin_login_attempts
+create table admin_login_attempts (
+  id         uuid primary key default gen_random_uuid(),
+  email      text not null,
+  ip         text not null,
+  succeeded  boolean not null,
+  created_at timestamptz not null default now()
+);
+create index admin_login_attempts_email_idx on admin_login_attempts (email, created_at);
+create index admin_login_attempts_ip_idx on admin_login_attempts (ip, created_at);
+
 -- ---------------------------------------------------------------------- RLS
 alter table products        enable row level security;
 alter table plans           enable row level security;
@@ -144,6 +156,7 @@ alter table orders          enable row level security;
 alter table licenses        enable row level security;
 alter table license_events  enable row level security;
 alter table webhook_events  enable row level security;
+alter table admin_login_attempts enable row level security;
 
 revoke all on all tables in schema public from anon, authenticated;
 revoke all on all sequences in schema public from anon, authenticated;
