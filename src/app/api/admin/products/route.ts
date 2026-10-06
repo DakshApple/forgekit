@@ -10,7 +10,9 @@ export const POST = withAdmin(async (req) => {
   const { oldSlug, plans, ...productData } = payload;
   
   if (!productData.key_prefix) {
-    productData.key_prefix = productData.name.split(" ").map((w: string) => w[0]).join("").toUpperCase().slice(0, 3) || "NEW";
+    let p = productData.name.split(" ").map((w: string) => w[0]).join("").toUpperCase().replace(/[^A-Z]/g, "");
+    if (p.length < 2) p = (p + "XX").slice(0, 2);
+    productData.key_prefix = p.slice(0, 3) || "NEW";
   }
 
   // Find existing product ID by oldSlug if we are editing
