@@ -74,18 +74,20 @@ export default async function ProductPage({
       <section>
         <div className="wrap flex flex-wrap items-start gap-14 pb-20 pt-8">
           <div className="min-w-0 flex-1 basis-[580px]">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 opacity-0 animate-fade-in-up">
               <Tag>{billingTags}</Tag>
             </div>
-            <h1 className="mt-5 text-[36px] font-bold leading-[1.08] tracking-tightest md:text-[52px]">
+            <h1 className="mt-5 text-[36px] font-bold leading-[1.08] tracking-tightest md:text-[52px] opacity-0 animate-fade-in-up-delay">
               {product.name}
             </h1>
-            <p className="mt-5 max-w-[600px] text-[17px] font-light leading-8 text-ink/80 md:text-[19px]">
+            <p className="mt-5 max-w-[600px] text-[17px] font-light leading-8 text-ink/80 md:text-[19px] opacity-0 animate-fade-in-up-delay-2">
               {product.description}
             </p>
 
-            <div className="mt-10 overflow-hidden rounded-2xl bg-tint px-5 pt-8 md:px-10 md:pt-10">
-              <AppWindow product={product} className="rounded-b-none border-b-0" />
+            <div className="mt-10 overflow-hidden rounded-2xl bg-tint px-5 pt-8 md:px-10 md:pt-10 opacity-0 animate-fade-in-up-delay-2">
+              <div className="animate-float-idle">
+                <AppWindow product={product} className="rounded-b-none border-b-0" />
+              </div>
               <div className="h-8" />
             </div>
             <p className="mt-2.5 text-xs text-ink/55">Screens shown with sample data.</p>
@@ -131,7 +133,7 @@ export default async function ProductPage({
             </div>
           </div>
 
-          <aside className="w-full flex-none md:sticky md:top-24 md:w-[400px]">
+          <aside className="w-full flex-none md:sticky md:top-24 md:w-[400px] opacity-0 animate-fade-in-up-delay">
             <PurchaseCard product={product} />
           </aside>
         </div>

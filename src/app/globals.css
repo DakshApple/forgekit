@@ -44,7 +44,7 @@
     @apply rounded-xl border border-ink/15 bg-paper shadow-soft;
   }
   .card-hover {
-    @apply transition hover:border-ink/40 hover:shadow-lift;
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:border-ink/40 hover:shadow-lift;
   }
   .input {
     @apply h-12 w-full rounded-lg border border-ink/30 bg-paper px-3.5 text-[15px] text-ink outline-none transition placeholder:text-ink/40 focus:border-ink focus:ring-4 focus:ring-ink/10;

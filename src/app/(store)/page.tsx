@@ -45,24 +45,24 @@ export default async function HomePage() {
       <section>
         <div className="wrap flex flex-wrap items-center gap-14 py-14 md:py-20">
           <div className="min-w-0 flex-1 basis-[480px]">
-            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-ink/15 py-1.5 pl-2.5 pr-3.5">
+            <div className="eyebrow inline-flex items-center gap-2.5 rounded-full border border-ink/15 py-1.5 pl-2.5 pr-3.5 opacity-0 animate-fade-in-up">
               <span className="block h-2 w-2 rounded-full bg-ink" />
               Software for small businesses, by Genartml
             </div>
-            <h1 className="h1 mt-7">Simple business software at a fixed price.</h1>
-            <p className="lead mt-6 max-w-[500px]">
+            <h1 className="h1 mt-7 opacity-0 animate-fade-in-up-delay">Simple business software at a fixed price.</h1>
+            <p className="lead mt-6 max-w-[500px] opacity-0 animate-fade-in-up-delay-2">
               Pick a tool, pay monthly or once, and your license key arrives by
               email. No account to create and no sales call.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <ButtonLink href="/products">
+            <div className="mt-9 flex flex-wrap gap-3 opacity-0 animate-fade-in-up-delay-2">
+              <ButtonLink href="/products" className="transition-transform hover:scale-105">
                 Browse products <Icon name="arrow" size={16} />
               </ButtonLink>
-              <ButtonLink href="/#how" variant="secondary">
+              <ButtonLink href="/#how" variant="secondary" className="transition-transform hover:scale-105">
                 How buying works
               </ButtonLink>
             </div>
-            <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-ink/70">
+            <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-[13px] text-ink/70 opacity-0 animate-fade-in-up-delay-2">
               {["Prices in INR", "Secure payment by Razorpay", "Receipt with every order"].map((t) => (
                 <li key={t} className="inline-flex items-center gap-2">
                   <Icon name="check" size={16} /> {t}
@@ -71,8 +71,8 @@ export default async function HomePage() {
             </ul>
           </div>
 
-          <div className="relative min-w-[300px] flex-1 basis-[440px] pb-9">
-            <div className="overflow-hidden rounded-[10px] border border-ink/15 bg-paper shadow-float">
+          <div className="relative min-w-[300px] flex-1 basis-[440px] pb-9 opacity-0 animate-fade-in-up-delay">
+            <div className="overflow-hidden rounded-[10px] border border-ink/15 bg-paper shadow-float animate-float-idle">
               <div className="flex h-8 items-center gap-1.5 border-b border-ink/10 bg-wash px-3">
                 <i className="block h-2 w-2 rounded-full bg-ink/15" />
                 <i className="block h-2 w-2 rounded-full bg-ink/15" />
@@ -110,7 +110,7 @@ export default async function HomePage() {
                 </div>
               ))}
             </div>
-            <div className="absolute -left-3 bottom-0 flex w-[272px] items-center gap-3 rounded-[10px] border border-ink/15 bg-paper px-4 py-3.5 shadow-float md:-left-6">
+            <div className="absolute -left-3 bottom-0 flex w-[272px] items-center gap-3 rounded-[10px] border border-ink/15 bg-paper px-4 py-3.5 shadow-float md:-left-6 opacity-0 animate-fade-in-up-delay-2">
               <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-ink text-paper">
                 <Icon name="check" size={16} strokeWidth={2.4} />
               </span>
