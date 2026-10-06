@@ -2,36 +2,51 @@ import type { Metadata } from "next";
 import { LegalPage, LegalSection } from "@/components/store/legal-page";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Refund policy" };
+export const metadata: Metadata = { 
+  title: "Refund Policy | Forgekit",
+  description: "Read our straightforward 7-day refund guarantee policy, subscription cancellation rules, and payment processing timelines."
+};
 
-// Production Refund Policy
 export default function RefundsPage() {
   return (
-    <LegalPage title="Refund policy" updated="6 October 2026">
-      <LegalSection title="1. Digital Products Refund Policy">
+    <LegalPage 
+      title="Refund Policy" 
+      updated="October 6, 2026"
+      subtitle="We want you to be 100% confident in your purchase. Here is our simple, hassle-free money-back guarantee."
+    >
+      <LegalSection title="1. 7-Day Money Back Guarantee">
         <p>
-          We stand behind the quality of our products. If the software does not work as described or you encounter insurmountable technical issues, write to {site.supportEmail} within {site.refundDays} days of your purchase. Please include your order number and a brief explanation of the issue, and we will issue a full refund.
+          We stand behind the code we build. If any software tool you purchase from Forgekit does not function as described on its product page, or if you encounter technical issues that our support team cannot resolve, you are entitled to a <strong>100% full refund within {site.refundDays} days</strong> of purchase.
+        </p>
+        <p className="mt-2">
+          To request a refund, simply send an email to <a className="text-indigo-600 font-semibold underline" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a> with your Order ID or License Key. No complex forms or questions asked.
         </p>
       </LegalSection>
-      <LegalSection title="2. Free Trials">
+
+      <LegalSection title="2. 7-Day Free Trial Policy">
         <p>
-          Some of our subscription products offer a 7-day free trial. If you cancel your subscription before the trial period ends, your card will not be charged. Once the trial converts into a paid subscription, the standard refund policy applies.
+          Select monthly subscription products offer a 7-day free trial. You can test all premium features without being billed upfront. If you cancel before day 7, your account will never be charged. Once a trial converts into a paid billing cycle, our standard 7-day refund window applies to that billing period.
         </p>
       </LegalSection>
-      <LegalSection title="3. Monthly Subscriptions & Cancellations">
+
+      <LegalSection title="3. Subscription Cancellations">
         <p>
-          You have full control over your subscriptions. You can request a cancellation of your monthly plan at absolutely any time before the next billing cycle by emailing {site.supportEmail}. Upon cancellation, your license will remain fully active until the end of the period you already paid for.
+          You are in full control of your subscription plans:
         </p>
+        <ul className="mt-2 list-disc list-inside space-y-1.5 text-xs sm:text-sm text-ink/80">
+          <li>Cancel anytime before your next renewal date by emailing <a className="text-indigo-600 underline" href={`mailto:${site.supportEmail}`}>{site.supportEmail}</a>.</li>
+          <li>Upon cancellation, your license key remains <strong>100% active until the end of the current paid billing cycle</strong>.</li>
+        </ul>
       </LegalSection>
-      <LegalSection title="4. Consequences of a Refund">
+
+      <LegalSection title="4. Key Revocation & Bank Processing Timelines">
         <p>
-          When a refund is processed, the associated License Key is immediately and permanently revoked. You will lose access to the premium features of the product associated with that key.
+          When a refund is approved and processed:
         </p>
-      </LegalSection>
-      <LegalSection title="5. Processing Times">
-        <p>
-          All refunds are securely routed back to your original payment method through Razorpay. Depending on your bank or credit card issuer, it typically takes 5-7 business days for the funds to reflect in your account.
-        </p>
+        <ul className="mt-2 list-disc list-inside space-y-1.5 text-xs sm:text-sm text-ink/80">
+          <li><strong>License Revocation:</strong> The associated license key will be marked as revoked in our system, disabling future access.</li>
+          <li><strong>Bank Refund Speed:</strong> Refunds are routed back through <strong>Razorpay</strong> to your original payment method (UPI, Card, or Bank Account). Funds typically reflect in your account within <strong>5 to 7 business days</strong>.</li>
+        </ul>
       </LegalSection>
     </LegalPage>
   );
