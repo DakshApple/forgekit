@@ -2,7 +2,7 @@ import { randomInt } from "node:crypto";
 
 // 32 symbols. No 0, O, 1 or I so keys are easy to read out and type.
 export const KEY_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-const GROUPS = 3;
+const GROUPS = 4;
 const GROUP_LEN = 4;
 
 /** PREFIX-XXXX-XXXX-XXXX from a cryptographically secure source. */
