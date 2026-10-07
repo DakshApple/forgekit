@@ -87,15 +87,15 @@ export function Hero() {
           <Link
             id="hero-cta-primary"
             href="/products"
-            className="group inline-flex h-12 items-center gap-2 rounded-[10px] bg-ink px-6 text-[15px] font-medium text-paper shadow-[0_8px_24px_-8px_rgb(37_99_235/0.5)] transition-[transform,box-shadow] duration-150 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-10px_rgb(37_99_235/0.6)]"
+            className="group relative inline-flex h-11 items-center gap-2 overflow-hidden rounded-full border border-ink/15 bg-paper/50 px-7 text-[14px] font-medium text-ink shadow-[0_2px_12px_rgba(0,0,0,0.1)] backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-ink/30 hover:bg-ink/5 hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.2)] dark:border-white/10 dark:bg-white/5 dark:text-white dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_4px_12px_rgba(0,0,0,0.4)] dark:hover:border-white/20 dark:hover:bg-white/10 dark:hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_8px_24px_-4px_rgba(0,0,0,0.6),0_0_20px_rgba(59,130,246,0.15)]"
           >
-            Browse products
-            <Icon name="arrow" size={16} strokeWidth={2.2} className="transition-transform duration-150 group-hover:translate-x-0.5" />
+            Browse the marketplace
+            <Icon name="arrow" size={15} strokeWidth={2.2} className="opacity-70 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100" />
           </Link>
           <Link
             id="hero-cta-secondary"
             href="/#how"
-            className="inline-flex h-12 items-center gap-2 rounded-[10px] border border-ink/[0.12] bg-paper/60 px-6 text-[15px] font-medium text-ink backdrop-blur-sm transition-[transform,border-color] duration-150 ease-out hover:-translate-y-0.5 hover:border-ink/25"
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-transparent px-6 text-[14px] font-medium text-ink/70 transition-all duration-300 ease-out hover:text-ink dark:text-white/60 dark:hover:text-white"
           >
             How it works
           </Link>
